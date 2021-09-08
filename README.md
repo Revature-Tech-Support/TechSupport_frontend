@@ -5,6 +5,7 @@ The front end for a tech support platform developed for Revature
 - HTML
 - Javascript
 - CSS
+- BootStrap
 - React JS
 - Java
 - Springboot
