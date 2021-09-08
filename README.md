@@ -11,8 +11,8 @@ The front end for a tech support platform developed for Revature
 - Spring Cloud
 
 ## User Stories
-As a User or Techinical Support Specialist, I should
-- have an interface to interact with the features provided by the application
+As a **User** or **Techinical Support Specialist**,    
+I should have an interface to interact with the features provided by the application.
 
 ## Getting Started
 ```https://github.com/Revature-Tech-Support/TechSupport_frontend.git```
