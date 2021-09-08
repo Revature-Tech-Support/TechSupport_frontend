@@ -2,12 +2,13 @@
 The front end for a tech support platform developed for Revature
 
 ## Technologies Used
-HTML
-Javascript
-CSS
-React JS
-Java
-Springboot
+- HTML
+- Javascript
+- CSS
+- React JS
+- Java
+- Springboot
+- Spring Cloud
 
 ## User Stories
 As a User or Techinical Support Specialist, I should
