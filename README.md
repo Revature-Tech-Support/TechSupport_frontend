@@ -11,7 +11,7 @@ Springboot
 
 ## User Stories
 As a User or Techinical Support Specialist, I should
-have an interface to interact with the features provided by the application
+- have an interface to interact with the features provided by the application
 
 ## Getting Started
 ```git clone https://github.com/Revature-Tech-Support/matrix_vanguard.git```
