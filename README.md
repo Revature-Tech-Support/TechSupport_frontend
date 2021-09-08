@@ -11,7 +11,7 @@ The front end for a tech support platform developed for Revature
 - Spring Cloud
 
 ## User Stories
-As a **User** or **Techinical Support Specialist**,    
+As a ***User*** or ***Technical Support Specialist***,    
 I should have an interface to interact with the features provided by the application.
 
 ## Getting Started
