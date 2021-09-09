@@ -13,7 +13,8 @@ The front end for a tech support platform developed for Revature
 
 ## User Stories
 As a ***User*** or ***Technical Support Specialist***,    
-I should have an interface to interact with the features provided by the application.
+***I want*** an interface    
+***So that*** I can interact with the features provided by the application.
 
 ## Getting Started
 ```https://github.com/Revature-Tech-Support/TechSupport_frontend.git```
