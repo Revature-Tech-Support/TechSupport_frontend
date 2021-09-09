@@ -14,14 +14,17 @@ const LoginOrRegister = () => {
     loginState.handleLogin = event => {
       event.preventDefault();
       axios.post('/users/login', {
-        username: loginState.username
+        username: loginState.username,
+        password: loginState.password
       })
         .then(({ data }) => {
           console.log(data);
           if (data) {
             localStorage.setItem('user', data)
-            window.location = '/chat'
+            //change to show chat box
+            window.location = '/'
           } else {
+            //change to show alert user that an error occurred
             window.location = '/'
           }
         })
@@ -31,12 +34,13 @@ const LoginOrRegister = () => {
     if (localStorage.getItem('user')) {
       axios.get('/users/authorize', {
         username: loginState.username
-        }
-      })
+        })
         .then(() => {
+          //change to show chat box
           window.location = '/chat'
         })
         .catch(err => console.error(err))
+      }
 
   const [registerState, setRegisterState] = useState({
     users: [],
@@ -53,56 +57,85 @@ const LoginOrRegister = () => {
     event.preventDefault()
     axios.post('/users/register', {
       username: registerState.username,
+      password: registerState.password
     })
       .then(({ data }) => {
         console.log(data)
         if (data) {
-          window.location = '/chat'
+          //change to show chat box
+          window.location = '/'
         } else {
           window.location = '/'
+          //add in div to alert user that error occurred
+          //alertDiv.innerHTML = "An error occurred during registering. Please try again."
         }
       })
       .catch(err => console.error(err))
-  }
-
+    }
+      
   return (
     <>
     <form id="loginForm">
       <div className="row">
+          <h3 id="alertDiv">To begin, log in or register below!</h3>
           <div className="col-sm-3 offset-md-3">
-          <label htmlFor="registerName" className="form-label">Register with a username</label>
+          <label htmlFor="registerName" className="form-label">Register here</label>
           <input 
             className="form-control" 
             type="text" 
             aria-label="Register Input"
             id='registerName'
             name='registerName'
-            onChange={(event) => loginState.handleInputChange(event)}
+            placeholder="Username"
+            onChange={event => loginState.handleInputChange(event)}
+          />
+          <br />
+          <input
+            className="form-control"
+            type="password"
+            aria-label="Register Password"
+            id="registerPassword"
+            name="registerPassword"
+            placeholder="Password"
+            onChange={event => loginState.handleInputChange(event)}
+            //onKeyPress={event => { if (event.key === 'Enter') { handleRegister(event) } }}
           />
           <br />
           <button 
             type="button" 
             className="btn btn-primary"
-            onClick={(event) => registerState.handleRegister(event)}
+            onClick={event => registerState.handleRegister(event)}
           >
             Register
           </button>
         </div>
           <div className="col-sm-3">
-          <label htmlFor="loginName" className="form-label">Log in with your username</label>
+          <label htmlFor="loginName" className="form-label">Log in here</label>
           <input 
             className="form-control" 
             type="text" 
-            aria-label="Login Input"
+            aria-label="Login Name"
             id='loginName'
             name='loginName'
-            onChange={(event) => loginState.handleInputChange(event)}
+            placeholder="Username"
+            onChange={event => loginState.handleInputChange(event)}
+          />
+          <br />
+          <input
+            className="form-control"
+            type="password"
+            aria-label="Login Password"
+            id="loginPassword"
+            name="loginPassword"
+            placeholder="Password"
+            onChange={event => loginState.handleInputChange(event)}
+            //onKeyPress={event => { if (event.key === 'Enter') { handleLogin(event)} }}
           />
           <br />
           <button 
             type="button" 
             className="btn btn-info"
-            onClick={(event) => loginState.handleLogin(event)}
+            onClick={event => loginState.handleLogin(event)}
           >
             Log In
           </button>
