@@ -1,20 +1,12 @@
-import React, { useState, useEffect } from 'react';
-// import queryString from 'query-string';
-// import io from 'socket.io-client';
+import React, { useState, useRef } from 'react';
+import Message from '../Message'
+import './Chat.css';
+import axios from 'axios';
 
-// let socket;
-
-const Chat = ({ location }) => {
-  // const [name, setName] = useState("");
-  // const endPoint = "localhost:3000";
-
-  // useEffect(() => {
-  //   const { name } =  queryString.parse(location.search);
-
-  //   socket = io(endPoint);
-  //   setName(name);
-  //   socket.emit();
-  // }, [endPoint, location.search]);
+const Chat = ({ user }) => {
+  const [input, setInput] = useState("");
+  const [messages, setMessages] = useState([]);
+  const scrollRef = useRef();
 
   // message state and functions
   const [messageState, setMessageState] = useState({
@@ -30,31 +22,76 @@ const Chat = ({ location }) => {
 
   messageState.sendMessage = event => {
     event.preventDefault()
+    axios.post('/users/messages', {
+      user: messageState.user,
+      message: messageState.message,
+    })
       .then(({ data }) => {
-        console.log(data)
         if (data) {
           console.log(data)
-        } else {
-          console.log("error")
-        }
-      })
-      .catch(err => console.error(err))
       }
+    })
+      .catch(err => console.error(err))
+  }
+
+  const sendText = (input) => {
+    console.log(input);
+  }
+
+  //close chat state and function
+  const [setClose] = React.useState(false);
+
+  const handleCloseChat = () => {
+    setClose(true);
+  };
       
   return (
-    
-    <div className="container hidden">
-      <h2>Chat</h2>
-      <div className="mb-3">
-        <textarea class="form-control" id="chatBox" rows="3" placeholder="Type message here..."></textarea>
+    <div className="container chatBox">
+      <div className="chatHeader">
+        {/* <img src={user.photo} alt="avatar" /> */}
+        <p id="chatTitle">CHAT</p>
+        <h2 
+        id="close"
+        onClick={event => handleCloseChat(event)}
+        >&times;</h2>
       </div>
-      <button
-        type="button"
-        className="btn btn-success"
-        onClick={event => messageState.sendMessage(event)}
-      >
-        Send
-      </button>
+      
+      <div className="chatMessages">
+        {messages.map((message) => (
+          <Message key={message.id} message={message} />
+        ))}
+        <div
+          ref={scrollRef}
+          style={{ float: "left", clear: "both", paddingTop: "4rem" }}
+        ></div>
+      </div>
+      <div className="mb-3">
+        <form>
+          <div className="input-group mb-3" style={{ width: "500px", margin: "auto" }}>
+          <input
+            id="messageInput"
+            type="text"
+            placeholder="Type a message here"
+            value={input}
+            onChange={(event) => {
+              messageState.handleInputChange(event)
+              setInput(event.target.value)
+              //const keypress = event.target.value.slice(-1)
+              //default: setInput(event.target.value)
+            }
+          }
+          />
+          <button 
+            className="btn btn-primary"
+            onClick={sendText}
+            // onClick={event => messageState.sendMessage(event)}
+          >
+          Send
+          </button>
+          </div>
+        </form>
+        
+      </div>
     </div>
   );
 }

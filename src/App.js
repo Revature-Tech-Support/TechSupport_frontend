@@ -8,7 +8,7 @@ import Footer from './Components/Footer';
 
 function App() {
 
-const [user, setUser] = useState(null);
+const [user] = useState(null);
 //return user == null ? ()
   return user ? (
     <>

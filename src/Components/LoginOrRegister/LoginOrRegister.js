@@ -21,10 +21,8 @@ const LoginOrRegister = () => {
           console.log(data);
           if (data) {
             localStorage.setItem('user', data)
-            //change to show chat box
-            window.location = '/'
           } else {
-            //change to show alert user that an error occurred
+            //change to show an alert which tells the user user that an error occurred
             window.location = '/'
           }
         })
@@ -35,9 +33,8 @@ const LoginOrRegister = () => {
       axios.get('/users/authorize', {
         username: loginState.username
         })
-        .then(() => {
-          //change to show chat box
-          window.location = '/chat'
+        .then(({ data }) => {
+          console.log(data)
         })
         .catch(err => console.error(err))
       }
@@ -59,13 +56,11 @@ const LoginOrRegister = () => {
       username: registerState.username,
       password: registerState.password
     })
-      .then(({ data }) => {
-        console.log(data)
+      .then(({ data }) => {        
         if (data) {
-          //change to show chat box
-          window.location = '/'
+          console.log(data)
         } else {
-          window.location = '/'
+          console.log("error occurred")
           //add in div to alert user that error occurred
           //alertDiv.innerHTML = "An error occurred during registering. Please try again."
         }
@@ -98,7 +93,7 @@ const LoginOrRegister = () => {
             name="registerPassword"
             placeholder="Password"
             onChange={event => loginState.handleInputChange(event)}
-            //onKeyPress={event => { if (event.key === 'Enter') { handleRegister(event) } }}
+            //onKeyPress={event => { if (event.key === 13) { handleRegister(event) } }}
           />
           <br />
           <button 
@@ -129,7 +124,7 @@ const LoginOrRegister = () => {
             name="loginPassword"
             placeholder="Password"
             onChange={event => loginState.handleInputChange(event)}
-            //onKeyPress={event => { if (event.key === 'Enter') { handleLogin(event)} }}
+            //onKeyPress={event => { if (event.key === 13) { handleLogin(event)} }}
           />
           <br />
           <button 
