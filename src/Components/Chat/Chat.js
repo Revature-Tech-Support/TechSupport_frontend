@@ -67,7 +67,6 @@ const Chat = ({ user }) => {
       </div>
       <div className="mb-3">
         <form>
-          <div className="input-group mb-3" style={{ width: "500px", margin: "auto" }}>
           <input
             id="messageInput"
             type="text"
@@ -76,8 +75,6 @@ const Chat = ({ user }) => {
             onChange={(event) => {
               messageState.handleInputChange(event)
               setInput(event.target.value)
-              //const keypress = event.target.value.slice(-1)
-              //default: setInput(event.target.value)
             }
           }
           />
@@ -88,7 +85,6 @@ const Chat = ({ user }) => {
           >
           Send
           </button>
-          </div>
         </form>
         
       </div>
