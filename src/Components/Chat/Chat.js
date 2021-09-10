@@ -46,7 +46,7 @@ const Chat = ({ location }) => {
     <div className="container hidden">
       <h2>Chat</h2>
       <div className="mb-3">
-        <textarea class="form-control" id="formControlTextarea" rows="3" placeholder="Type message here..."></textarea>
+        <textarea class="form-control" id="chatBox" rows="3" placeholder="Type message here..."></textarea>
       </div>
       <button
         type="button"

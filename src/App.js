@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import Navbar from './Components/Navbar';
 import Jumbotron from './Components/Jumbotron';
@@ -7,14 +7,23 @@ import Chat from './Components/Chat'
 import Footer from './Components/Footer';
 
 function App() {
-  return (
+
+  const [user, setUser] = useState(null);
+  return user == null ? (
     <>
       <Navbar />
-        <Jumbotron />
-        <br />
-        <LoginOrRegister />
-        <br />
-        <Chat />
+      <Jumbotron />
+      <br />
+      <LoginOrRegister />
+      <br />
+      <Footer />
+      </>
+      ) : (
+      <Navbar />
+      <Jumbotron />
+      <br />
+      <Chat />
+      <br />
       <Footer />
     </>
   );
