@@ -3,7 +3,7 @@ import Message from '../Message'
 import './Chat.css';
 import axios from 'axios';
 
-const Chat = ({ user }) => {
+const Chat = ({ user, onClick }) => {
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState([]);
   const scrollRef = useRef();
@@ -29,20 +29,34 @@ const Chat = ({ user }) => {
       .then(({ data }) => {
         if (data) {
           console.log(data)
+          this.setState({ messageState: data, message: '' })
       }
     })
       .catch(err => console.error(err))
   }
 
-  const sendText = (input) => {
-    console.log(input);
+  const sendText = (event) => {
+    event.preventDefault();
+    this.setState({ sendMessage: this.state.unsentMessage, message: '' })
+  }
+
+  const onSubmit = event => {
+    event.preventDefault();
+    if(!message) {
+      alert("Please type in a message.")
+      return
+    }
+
+    onClick({ message })
+
+    setInput("")
   }
 
   //close chat state and function
-  const [setClose] = React.useState(false);
+  const [closed, setClosed] = React.useState(false);
 
   const handleCloseChat = () => {
-    setClose(true);
+    setClosed(true);
   };
       
   return (
@@ -57,6 +71,7 @@ const Chat = ({ user }) => {
       </div>
       
       <div className="chatMessages">
+        <h3>Message: {this.messageState.sendMessage}</h3>
         {messages.map((message) => (
           <Message key={message.id} message={message} />
         ))}
@@ -66,12 +81,13 @@ const Chat = ({ user }) => {
         ></div>
       </div>
       <div className="mb-3">
-        <form>
+        <form onSubmit={onSubmit}>
           <input
-            id="messageInput"
+            id="message"
             type="text"
+            name="message"
             placeholder="Type a message here"
-            value={input}
+            value={message}
             onChange={(event) => {
               messageState.handleInputChange(event)
               setInput(event.target.value)
@@ -80,7 +96,7 @@ const Chat = ({ user }) => {
           />
           <button 
             className="btn btn-primary"
-            onClick={sendText}
+            onClick={this.sendText}
             // onClick={event => messageState.sendMessage(event)}
           >
           Send
