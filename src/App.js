@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
-import io from "socket.io-client";
+//import io from "socket.io-client";
 import Navbar from './Components/Navbar';
 import Jumbotron from './Components/Jumbotron';
 import LoginOrRegister from './Components/LoginOrRegister';
