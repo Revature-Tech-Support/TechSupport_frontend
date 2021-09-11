@@ -7,7 +7,7 @@ import LoginOrRegister from './Components/LoginOrRegister';
 import Chat from './Components/Chat';
 import Footer from './Components/Footer';
 
-const socket = io.connect("http://localhost:3001");
+// const socket = io.connect("http://localhost:3001");
 
 function App() {
 
