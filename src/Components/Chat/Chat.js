@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import Message from '../Message';
 import './Chat.css';
 import axios from 'axios';
@@ -10,10 +10,13 @@ const Chat = ({ user, onClick }) => {
 
   // message state and functions
   const [messageState, setMessageState] = useState({
+    user: '',
     users: [],
-    sendMessage: '',
+    message: '',
+    messages: [],    
     inputText: '',
     displayText: '',
+    sendMessage: '',
     handleInputChange: ''
   })
 
@@ -27,6 +30,7 @@ const Chat = ({ user, onClick }) => {
   messageState.sendMessage = event => {
     event.preventDefault()
     setMessageState({ ...messageState, displayText: messageState.inputText, inputText: '' })
+    //let messages = JSON.parse(JSON.stringify(messageState.messages))
     // axios.post('/users/messages', {
     //   user: messageState.user,
     //   message: messageState.message,
@@ -34,13 +38,22 @@ const Chat = ({ user, onClick }) => {
     //   .then(({ data }) => {
     //     console.log(data)
     //     if (data) {
-    //       setMessageState({ ...messageState, displayText: messageState.inputText, inputText: '' })
+    //       messages.push(data)   
+    //       setMessageState({ ...messageState, messages, inputText: '' })
     //     } else {
     //       alert("Please type in a message.")
     //     }
     //   })
     //   .catch(err => console.error(err))
   }
+
+  useEffect(() => {
+    axios.get('/users/messages')
+      .then(({ data }) => {
+        setMessageState({ ...messageState, messages: data })
+      })
+      .catch(err => console.error(err))
+  }, [])
 
   //close chat state and function
   const [closed, setClosed] = React.useState(false);
@@ -52,12 +65,18 @@ const Chat = ({ user, onClick }) => {
   return (
     <div className="container chatBox">
       <div className="chatHeader">
+        <div className="row">
         {/* <img src={user.photo} alt="avatar" /> */}
-        <p id="chatTitle">CHAT</p>
-        <h2
-          id="close"
+        <div className="col">
+        <p className="chatTitle">CHAT</p>
+          </div>
+          <div className="col">
+        <button
+          className="close"
           onClick={event => handleCloseChat(event)}
-        >&times;</h2>
+        >&times;</button>
+          </div>
+        </div>
       </div>
 
       <div className="chatMessages">
@@ -70,7 +89,8 @@ const Chat = ({ user, onClick }) => {
           style={{ float: "left", clear: "both", paddingTop: "4rem" }}
         ></div>
       </div>
-      <div className="mb-3">
+      {/* <div className="mb-3"> */}
+      <div className="m">
         <form>
           <input
             id="messageInput"
