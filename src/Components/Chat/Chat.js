@@ -29,36 +29,39 @@ const Chat = ({ user, onClick }) => {
 
   messageState.sendMessage = event => {
     event.preventDefault()
+    //line 33 experiments with putting input text directly on the page
     setMessageState({ ...messageState, displayText: messageState.inputText, inputText: '' })
-    //let messages = JSON.parse(JSON.stringify(messageState.messages))
-    // axios.post('/users/messages', {
-    //   user: messageState.user,
-    //   message: messageState.message,
-    // })
-    //   .then(({ data }) => {
-    //     console.log(data)
-    //     if (data) {
-    //       messages.push(data)   
-    //       setMessageState({ ...messageState, messages, inputText: '' })
-    //     } else {
-    //       alert("Please type in a message.")
-    //     }
-    //   })
-    //   .catch(err => console.error(err))
+    
+  //   let messages = JSON.parse(JSON.stringify(messageState.messages))
+  //   axios.post('/users/messages', {
+  //     user: messageState.user,
+  //     message: messageState.message,
+  //   })
+  //     .then(({ data }) => {
+  //       console.log(data)
+  //       if (data) {
+  //         messages.push(data)   
+  //         setMessageState({ ...messageState, messages, inputText: '' })
+  //       } else {
+  //         alert("Please type in a message.")
+  //       }
+  //     })
+  //     .catch(err => console.error(err))
   }
 
-  useEffect(() => {
-    axios.get('/users/messages')
-      .then(({ data }) => {
-        setMessageState({ ...messageState, messages: data })
-      })
-      .catch(err => console.error(err))
-  }, [])
+  // useEffect(() => {
+  //   axios.get('/users/messages')
+  //     .then(({ data }) => {
+  //       setMessageState({ ...messageState, messages: data })
+  //     })
+  //     .catch(err => console.error(err))
+  // }, [])
 
   //close chat state and function
-  const [closed, setClosed] = React.useState(false);
+  const [closed, setClosed] = useState(false);
 
-  const handleCloseChat = () => {
+  const handleCloseChat = (event) => {
+    console.log(event)
     setClosed(true);
   };
 
@@ -73,14 +76,15 @@ const Chat = ({ user, onClick }) => {
           <div className="col">
         <button
           className="close"
-          onClick={event => handleCloseChat(event)}
+          onClick={(event) => handleCloseChat(event)}
         >&times;</button>
           </div>
         </div>
       </div>
 
       <div className="chatMessages">
-        <h3>Message: {messageState.displayText}</h3>
+        <p className="senderColor">
+          Message: {messageState.displayText}</p>
         {messages.map((message) => (
           <Message key={message.id} message={message} />
         ))}
