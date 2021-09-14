@@ -9,30 +9,16 @@ import Footer from './Components/Footer';
 function App() {
 
 const [user] = useState(null);
-//return user == null ? (
-  return (
-    <div>
+  //return user == null ? (
+  return(
+    <>
       <Navbar />
       <Jumbotron />
-      <div className="content">
-        {user ? (<LoginOrRegister> </LoginOrRegister>) : (<Chat> </Chat>)}
+      <div>
+        {user ? (<LoginOrRegister> </LoginOrRegister>):(<Chat> </Chat>)}
       </div>
       <Footer />
-    </div>
-
-
-
-
-
-//<Navbar />
-      // <div className="content">
-
-    //   { user ? 
-    //     ( <LoginOrRegister />) : 
-    //     (<Chat />)
-    // }
-      //</div>
-      //<Footer />
+    </>
   ); 
 }
 

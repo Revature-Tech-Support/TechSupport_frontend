@@ -4,7 +4,8 @@ import axios from 'axios';
 const LoginOrRegister = () => {
 
     const [loginState, setLoginState] = useState({
-      users: []
+      users: [],
+      isSignedIn: false
     })
 
     loginState.handleInputChange = event => {
@@ -22,7 +23,7 @@ const LoginOrRegister = () => {
           if (data) {
             localStorage.setItem('user', data)
           } else {
-            //change to show an alert which tells the user user that an error occurred
+            alert("An error occurred during login. Please try again.")
             window.location = '/'
           }
         })
@@ -59,10 +60,11 @@ const LoginOrRegister = () => {
       .then(({ data }) => {        
         if (data) {
           console.log(data)
+          localStorage.setItem('user', data)
         } else {
           console.log("error occurred")
-          //add in div to alert user that error occurred
-          //alertDiv.innerHTML = "An error occurred during registering. Please try again."
+          alert("An error occurred during registering. Please try again.")
+          window.location = "/";
         }
       })
       .catch(err => console.error(err))
