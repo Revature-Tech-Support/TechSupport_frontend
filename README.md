@@ -1,7 +1,28 @@
 # TechSupport_frontend
 The front end for a tech support platform developed for Revature
 
-## Technologies Used
+
+## Client Specifications:
+- Test Driven Development (TDD)
+
+
+## Goal:
+[insert]
+
+
+## User Stories:
+### User
+- As a User
+- I want an interface
+- So that I can interact with the features provided by the application.
+
+### Technical Support Specialist
+- As a Technical Support Specialist
+- I want an interface
+- So that I can interact with the features provided by the application.
+
+
+## Technology:
 - HTML
 - Javascript
 - CSS
@@ -11,10 +32,6 @@ The front end for a tech support platform developed for Revature
 - Springboot
 - Spring Cloud
 
-## User Stories
-As a ***User*** or ***Technical Support Specialist***,    
-***I want*** an interface    
-***So that*** I can interact with the features provided by the application.
 
 ## Getting Started
 ```https://github.com/Revature-Tech-Support/TechSupport_frontend.git```
