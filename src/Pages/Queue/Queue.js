@@ -14,28 +14,43 @@ const Queue = () => {
 
   ticketState.startChat = (event) => {
     console.log(event)
-    if (ticketState.ticket.id === "ticketId") {
       let openChat = window.confirm("This will open a chat with the corresponding client. Proceed?")
       if (openChat) {
-      window.location = "/chat"
-      }
-    } 
+        window.location = "/chat"
+    }
+    // if (ticketState.ticket.id === "ticketId") {
+    //   let openChat = window.confirm("This will open a chat with the corresponding client. Proceed?")
+    //   if (openChat) {
+    //   window.location = "/chat"
+    //   }
+    // } 
   };
 
   ticketState.deleteTicket = id => {
     console.log(id)
-    if (ticketState.ticket.id === "id") {
       let removeTicket = window.confirm("This will remove the ticket from the queue list. Proceed?")
       if (removeTicket) {
-        axios.delete(`/tickets/${id}`) 
+        axios.delete(`/tickets/${id}`)
           .then(() => {
-          const tickets = JSON.parse(JSON.stringify(ticketState.tickets))
-          const ticketsFiltered = tickets.filter(ticket => ticket._id !== id)
-          setTicketState({ ...ticketState, tickets: ticketsFiltered })
-        })
-      .catch (err => console.error(err))
-        }
+            const tickets = JSON.parse(JSON.stringify(ticketState.tickets))
+            const ticketsFiltered = tickets.filter(ticket => ticket._id !== id)
+            setTicketState({ ...ticketState, tickets: ticketsFiltered })
+          })
+          .catch(err => console.error(err))
       }
+    
+    // if (ticketState.ticket.id === "id") {
+    //   let removeTicket = window.confirm("This will remove the ticket from the queue list. Proceed?")
+    //   if (removeTicket) {
+    //     axios.delete(`/tickets/${id}`) 
+    //       .then(() => {
+    //       const tickets = JSON.parse(JSON.stringify(ticketState.tickets))
+    //       const ticketsFiltered = tickets.filter(ticket => ticket._id !== id)
+    //       setTicketState({ ...ticketState, tickets: ticketsFiltered })
+    //     })
+    //   .catch (err => console.error(err))
+    //     }
+    //   }
     }
 
 
@@ -67,7 +82,7 @@ const Queue = () => {
             <td>4</td>
             <td>Won't die</td>
             <td><a onClick={event => ticketState.startChat(event)}>Start chat</a></td>
-            <td><a href="#">Delete</a></td>
+            <td><a onClick={event => ticketState.deleteTicket(event)}>Delete</a></td>
           </tr>
           <tr>
             <th scope="row">2</th>
