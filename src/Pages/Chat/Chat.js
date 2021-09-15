@@ -1,5 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
-import Message from '../Message';
+import Message from '../../Components/Message';
+import Navbar from "../../Components/Navbar";
+import Footer from "../../Components/Footer";
 import './Chat.css';
 import axios from 'axios';
 
@@ -59,21 +61,30 @@ const Chat = ({ user, onClick }) => {
   //close chat state and function
   const [closed, setClosed] = useState(true);
 
-  const handleCloseChat = (event) => {
-    
+  const handleCloseChat = (event) => {    
     console.log(event)
     setClosed(true);
+    if (user === "user") {
     alert("You have left the chat and will now be redirected to the login/register page.")
     //clears user from localStorage, thereby logging them out
     localStorage.clear();  
+    } else {
+      alert("Issue has been marked as resolved.")
+    }
   };
 
-  //ternary to differentiate between sender and receiver
-  const isSender = (user) => {
-    return (user === "receiver");
-  }
+  // const retrieveHistory = (event) => {
+  //   event.preventDefault();
+  //   axios.get("/users/chatHistory")
+  //     .then (({ data }) => {
+  //       setMessageState({...messageState, messages: data})
+  //     })
+  //     .catch(err => console.error(err))
+  // }
 
   return (
+    <>
+    <Navbar />
     <div className="container chatBox">
       <div className="chatHeader">
         <div className="row">
@@ -90,43 +101,47 @@ const Chat = ({ user, onClick }) => {
       </div>
       
       <ul className="chat" id="chatList">
-      <div className="chatMessages">
-        <li className="sender">
-          <div className="msg">
-              {/* <div className="message"> {data.data.text}</div> */}
-              <div className="msgText"> Hello there!</div>
+        <div className="chatMessages">
+          <div className="col">
+          <li className="sender">
+            
+            <div className="msg">
+              {/* <p>{data.sender.username}</p> */}
+              {/* <div className="msgText"> {data.data.text}</div> */}
+              <p>SENDER</p>
+              <div className="msgText">{messageState.displayText}</div>
             </div>
           </li>
+          </div>
           ) : (
+            <div className="col">
           <li className="receiver">
             <div className="msg">
-              {/* <p>{data.sender.uid}</p> */}
-              {/*<div className="message"> {data.data.text} </div> */}
-
-              <div className="msgText"> Hi to You too! </div>
+              {/* <p>{data.receiver.username}</p> */}
+              {/*<div className="msgText"> {data.data.text} </div> */}
+              <p>RECEIVER</p>
+              <div className="msgText">Hi to You too!</div>
             </div>
           </li>
-        {/* <p 
-        className={isSender ? "senderColor" : "receiverColor"}>
-          Message: {messageState.displayText}</p> */}
-        {messages.map((message) => (
-          <Message key={message.id} message={message} />
-        ))}
-        <div
-          ref={scrollRef}
-          style={{ float: "left", clear: "both", paddingTop: "4rem" }}
-        ></div>
-      </div>
+            </div>
+          {messages.map(message => (
+            <Message key={message.id} message={message} />
+          ))}
+          <div 
+          ref={scrollRef} 
+          // className="scroll"
+            style={{ float: "left", clear: "both", paddingTop: "4rem" }}></div>
+        </div>
       </ul>
-      {/* <div className="mb-3"> */}
-      <div className="m">
+      <div className="row">
+      <div className="m chatInputWrapper">
         <form>
           <input
             id="messageInput"
             type="text"
             name="inputText"
             placeholder="Type a message here"
-            value={messageState.inputText}
+            value={messageState.inputText}  
             onChange={(event) => {
               messageState.handleInputChange(event)
               setInput(event.target.value)
@@ -139,9 +154,15 @@ const Chat = ({ user, onClick }) => {
           >
             Send
           </button>
+          {/* <button 
+          className="btn btn-info"
+          onClick={event => messageState.retrieveHistory(event)}>Display transaction history</button> */}
         </form>
+        </div>
       </div>
     </div>
+    <Footer />
+    </>
   );
 }
 

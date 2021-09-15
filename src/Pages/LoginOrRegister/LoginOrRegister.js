@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import Navbar from "../../Components/Navbar";
+import Jumbotron from '../../Components/Jumbotron';
+import Footer from "../../Components/Footer";
 
 const LoginOrRegister = () => {
 
@@ -72,6 +75,8 @@ const LoginOrRegister = () => {
       
   return (
     <>
+    <Navbar />
+    <Jumbotron />
     <form id="loginForm">
       <div className="row">
           <h3 id="alertDiv">To begin, log in or register below!</h3>
@@ -139,6 +144,7 @@ const LoginOrRegister = () => {
         </div>
       </div>
     </form>
+    <Footer />
     </>
   );
 }

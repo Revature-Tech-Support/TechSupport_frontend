@@ -1,23 +1,26 @@
 import React, { useState } from 'react';
 import './App.css';
-import Navbar from './Components/Navbar';
+import { Route, Redirect, Switch } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 import Jumbotron from './Components/Jumbotron';
-import LoginOrRegister from './Components/LoginOrRegister';
-import Chat from './Components/Chat';
-import Footer from './Components/Footer';
+import LoginOrRegister from './Pages/LoginOrRegister';
+import Chat from './Pages/Chat';
+import Queue from './Pages/Queue';
 
-function App() {
+const App = () => {
 
 const [user] = useState(null);
   //return user == null ? (
   return(
     <>
-      <Navbar />
-      <Jumbotron />
-      <div>
-        {user ? (<LoginOrRegister> </LoginOrRegister>):(<Chat> </Chat>)}
-      </div>
-      <Footer />
+      <Router>
+        <Switch>
+          <Redirect exact from="/" to="/login" />
+          <Route path="/login" component= {LoginOrRegister} />
+          <Route path="/chat" component={Chat} />
+          <Route path="/queue" component={Queue} />
+        </Switch>
+      </Router>
     </>
   ); 
 }

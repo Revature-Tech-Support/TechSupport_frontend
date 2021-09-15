@@ -2,11 +2,18 @@ import React from 'react';
 
 const Navbar = () => {
   return (
-    <nav className="navbar navbar-light bg-secondary">
-      <div className="container-fluid">
-        <span className="navbar-brand mb-0 h1">Revature</span>
-      </div>
-    </nav>
+    <>
+      <nav className="navbar navbar-expand-lg navbar-light bg-secondary">
+        <div className="container-fluid">
+          <a className="navbar-brand" href="#">Revature</a>
+            <div className="navbar-nav">
+              <a className="nav-link" href="/login">Login/Register</a>
+              <a className="nav-link" href="/chat">Chat</a>
+              <a className="nav-link" href="/queue">Queue</a>
+            </div>
+        </div>
+      </nav>
+    </>
   );
 }
 

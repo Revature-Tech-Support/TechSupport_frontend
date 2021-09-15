@@ -5,3 +5,8 @@ body {
 .jumbotron {
   background-color: rgb(247, 119, 0);
 }
+
+.nav-link{
+  color: white !important;
+  padding: 10px !important;
+}
