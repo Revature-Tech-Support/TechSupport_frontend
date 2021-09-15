@@ -1,10 +1,10 @@
 import React, { useEffect, useState, useRef } from 'react';
 import Message from '../../Components/Message';
 import Navbar from '../../Components/Navbar';
+import Jumbotron from '../../Components/Jumbotron';
 import Footer from '../../Components/Footer';
 import './Chat.css';
 import axios from 'axios';
-import Jumbotron from '../../Components/Jumbotron';
 
 const Chat = ({ user, onClick }) => {
 
@@ -49,7 +49,6 @@ const Chat = ({ user, onClick }) => {
       <Navbar />
       <Jumbotron />
       <div className='container chatBox'>
-
         <div className='chatHeader'>
           <div className='row'>
             <div className='col'>
