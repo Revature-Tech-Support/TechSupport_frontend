@@ -58,7 +58,7 @@ const Chat = ({ user, onClick }) => {
   }
 
   useEffect(() => {
-    axios.get('/users/messages')
+    axios.get('/users/messages') 
       .then(({ data }) => {
         setMessageState({...messageState, messages: data })
       })
@@ -73,7 +73,7 @@ const Chat = ({ user, onClick }) => {
     setClosed(true);
     if (user === "user") {
       alert("You have left the chat and will now be redirected to the login/register page.")
-      //clears user from localStorage, thereby logging them out
+      //clears user from localStoage, thereby logging them out
       localStorage.clear(); 
       window.location = "/" 
     } else {

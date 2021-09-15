@@ -7,33 +7,37 @@ const Queue = () => {
 
   const [ticketState, setTicketState] = useState({
     ticket: '',
-    tickets: []
+    tickets: [],
+    startChat: '',
+    deleteTicket: ''
   })
 
-  const startChat = (event) => {
+  ticketState.startChat = (event) => {
     console.log(event)
     if (ticketState.ticket.id === "ticketId") {
-      let openChat = confirm("This will open a chat with the corresponding client. Proceed?")
+      let openChat = window.confirm("This will open a chat with the corresponding client. Proceed?")
       if (openChat) {
       window.location = "/chat"
       }
     } 
   };
 
-  const deleteTicket = (event) => {
-    console.log(event)
-    if (ticketState.ticket.id === "ticketId") {
-      let removeTicket = confirm("This will remove the ticket from the queue list. Proceed?")
+  ticketState.deleteTicket = id => {
+    console.log(id)
+    if (ticketState.ticket.id === "id") {
+      let removeTicket = window.confirm("This will remove the ticket from the queue list. Proceed?")
       if (removeTicket) {
-        axios.delete(`/tickets/${ticket.id}`) {
+        axios.delete(`/tickets/${id}`) 
+          .then(() => {
           const tickets = JSON.parse(JSON.stringify(ticketState.tickets))
           const ticketsFiltered = tickets.filter(ticket => ticket._id !== id)
           setTicketState({ ...ticketState, tickets: ticketsFiltered })
-        }
+        })
       .catch (err => console.error(err))
         }
       }
     }
+
 
   return (
     <>
@@ -46,14 +50,14 @@ const Queue = () => {
     </div>
     <div className="container">
       <h2>QUEUE TABLE</h2>
-      <table class="table table-striped table-dark table-hover">
+      <table className="table table-striped table-dark table-hover">
         <thead>
           <tr>
             <th scope="col">ID #</th>
             <th scope="col">Username</th>
             <th scope="col">Minutes Waiting</th>
-            <th scope="col">ticket</th>
-            <th colspan="2">Actions</th>
+            <th scope="col">Issue</th>
+            <th colSpan="2">Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -62,7 +66,7 @@ const Queue = () => {
             <td>Cockroach Team</td>
             <td>4</td>
             <td>Won't die</td>
-            <td><a href="#">Start chat</a></td>
+            <td><a onClick={event => ticketState.startChat(event)}>Start chat</a></td>
             <td><a href="#">Delete</a></td>
           </tr>
           <tr>
