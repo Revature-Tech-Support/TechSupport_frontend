@@ -12,17 +12,11 @@ const Ticket = () => {
     <div className="container">
     <form>
       <div class="row justify-content-center">
-        <label htmlFor="username" className="form-label">Username</label>
-        <div class="col-3 bg-light p-3">
-          <input type="text" className="form-control" id="ticketUsername" />
-        </div>
-      </div>
-      {/* <div class="row justify-content-center">
         <label htmlFor="subject" className="form-label">Subject</label>
         <div class="col-3 bg-light p-3">
           <input type="text" className="form-control" id="subject" />
         </div>
-      </div> */}
+      </div>
       <div className="mb-3">
         <label htmlFor="textArea" className="form-label">Issue</label>
         <textarea className="form-control" id="textArea" rows="3" placeholder="Please enter in details about your issue.">
