@@ -31,24 +31,30 @@ const Chat = ({ user, onClick }) => {
 
   messageState.sendMessage = event => {
     event.preventDefault()
-    //this next line renders input text directly on the page
+    //the next 5 lines are only used for testing purposes and should be removed once backend is set up
+    if (messageState.inputText !== "") {    
     setMessageState({ ...messageState, displayText: messageState.inputText, inputText: '' })
-    
-    let messages = JSON.parse(JSON.stringify(messageState.messages))
-    axios.post('/users/messages', {
-      user: messageState.user,
-      message: messageState.message,
-    })
-      .then(({ data }) => {
-        console.log(data)
-        if (data) {
-          messages.push(data)   
-          setMessageState({ ...messageState, messages, inputText: '' })
-        } else {
-          alert("Please type in a message.")
-        }
-      })
-      .catch(err => console.error(err))
+    } else {
+    alert("Please type in a message.")
+    }
+
+    // if (messageState.inputText !== "") {
+    // let messages = JSON.parse(JSON.stringify(messageState.messages))
+    // axios.post('/users/messages', {
+    //   user: messageState.user,
+    //   message: messageState.message,
+    // })
+    //   .then(({ data }) => {
+    //     console.log(data)
+    //     if (data) {
+    //       messages.push(data)   
+    //       setMessageState({ ...messageState, messages, inputText: '' })
+    //     }
+    //   })
+    //   .catch(err => console.error(err))
+    // } else {
+    // alert("Please type in a message.")
+    // }
   }
 
   useEffect(() => {
@@ -66,11 +72,14 @@ const Chat = ({ user, onClick }) => {
     console.log(event)
     setClosed(true);
     if (user === "user") {
-    alert("You have left the chat and will now be redirected to the login/register page.")
-    //clears user from localStorage, thereby logging them out
-    localStorage.clear();  
+      alert("You have left the chat and will now be redirected to the login/register page.")
+      //clears user from localStorage, thereby logging them out
+      localStorage.clear(); 
+      window.location = "/" 
     } else {
+      //this is for tech support and redirects them to the queue
       alert("Issue has been marked as resolved.")
+      window.location = "/queue"
     }
   };
 
@@ -130,7 +139,7 @@ const Chat = ({ user, onClick }) => {
             <Message key={message.id} message={message} />
           ))}
           <div 
-          ref={scrollRef} 
+            ref={scrollRef} 
           // className="scroll"
             style={{ float: "left", clear: "both", paddingTop: "4rem" }}></div>
         </div>
