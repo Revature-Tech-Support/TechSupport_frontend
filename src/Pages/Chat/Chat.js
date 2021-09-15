@@ -4,6 +4,7 @@ import Navbar from "../../Components/Navbar";
 import Footer from "../../Components/Footer";
 import './Chat.css';
 import axios from 'axios';
+import Jumbotron from '../../Components/Jumbotron';
 
 const Chat = ({ user, onClick }) => {
   const [messages, setMessages] = useState([]);
@@ -85,6 +86,7 @@ const Chat = ({ user, onClick }) => {
   return (
     <>
     <Navbar />
+    <Jumbotron />
     <div className="container chatBox">
       <div className="chatHeader">
         <div className="row">
