@@ -35,8 +35,9 @@ const Queue = () => {
     console.log(id)
     axios.get(`/tickets/${id}`)
       .then(() => {
-        
+        window.location="/history"
       })
+      .catch(err => console.error(err))
   }
 
   return (
