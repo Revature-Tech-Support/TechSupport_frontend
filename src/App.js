@@ -6,6 +6,7 @@ import LoginOrRegister from './Pages/LoginOrRegister';
 import Ticket from './Pages/Ticket';
 import Chat from './Pages/Chat';
 import Queue from './Pages/Queue';
+import History from './Pages/History';
 
 const App = () => {
 
@@ -20,6 +21,7 @@ const [user] = useState(null);
           <Route path="/createTicket" component={Ticket} />
           <Route path="/chat" component={Chat} />
           <Route path="/queue" component={Queue} />
+          <Route path="/history" component={History} />
         </Switch>
       </Router>
     </>

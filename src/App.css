@@ -6,8 +6,20 @@ body {
   background-color: rgb(247, 119, 0);
 }
 
-.nav-link{
+.nav-link {
   color: white !important;
   padding: 10px !important;
 }
 
+.ticketContainer {
+  width: 50%;
+}
+
+.card{
+  margin: auto;
+}
+
+.sheet{
+  border: 2px solid black;
+  box-shadow: 5px 10px black;
+}

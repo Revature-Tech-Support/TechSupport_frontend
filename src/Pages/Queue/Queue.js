@@ -5,54 +5,39 @@ import axios from 'axios';
 
 const Queue = () => {
 
-  const [ticketState, setTicketState] = useState({
-    ticket: '',
-    tickets: [],
-    startChat: '',
-    deleteTicket: ''
-  })
+  const [queueState, setQueueState] = useState([])
 
-  ticketState.startChat = (event) => {
+  const startChat = event => {
     console.log(event)
+    // if (queueState.ticket.id === "ticketId") {
       let openChat = window.confirm("This will open a chat with the corresponding client. Proceed?")
       if (openChat) {
         window.location = "/chat"
     }
-    // if (ticketState.ticket.id === "ticketId") {
-    //   let openChat = window.confirm("This will open a chat with the corresponding client. Proceed?")
-    //   if (openChat) {
-    //   window.location = "/chat"
-    //   }
-    // } 
   };
 
-  ticketState.deleteTicket = id => {
+  const deleteTicket = id => {
     console.log(id)
+    // if (queueState.ticket.id === "id") {
       let removeTicket = window.confirm("This will remove the ticket from the queue list. Proceed?")
       if (removeTicket) {
         axios.delete(`/tickets/${id}`)
           .then(() => {
-            const tickets = JSON.parse(JSON.stringify(ticketState.tickets))
-            const ticketsFiltered = tickets.filter(ticket => ticket._id !== id)
-            setTicketState({ ...ticketState, tickets: ticketsFiltered })
+            const queue = JSON.parse(JSON.stringify(queueState.tickets))
+            const queueFiltered = queue.filter(ticket => ticket._id !== id)
+            setQueueState({ ...queueState, queue: queueFiltered })
           })
           .catch(err => console.error(err))
       }
-    
-    // if (ticketState.ticket.id === "id") {
-    //   let removeTicket = window.confirm("This will remove the ticket from the queue list. Proceed?")
-    //   if (removeTicket) {
-    //     axios.delete(`/tickets/${id}`) 
-    //       .then(() => {
-    //       const tickets = JSON.parse(JSON.stringify(ticketState.tickets))
-    //       const ticketsFiltered = tickets.filter(ticket => ticket._id !== id)
-    //       setTicketState({ ...ticketState, tickets: ticketsFiltered })
-    //     })
-    //   .catch (err => console.error(err))
-    //     }
-    //   }
     }
 
+  const retrieveHistory = id => {
+    console.log(id)
+    axios.get(`/tickets/${id}`)
+      .then(() => {
+        
+      })
+  }
 
   return (
     <>
@@ -81,8 +66,8 @@ const Queue = () => {
             <td>Cockroach Team</td>
             <td>4</td>
             <td>Won't die</td>
-            <td><a onClick={event => ticketState.startChat(event)}>Start chat</a></td>
-            <td><a onClick={event => ticketState.deleteTicket(event)}>Delete</a></td>
+            <td><a onClick={event => queueState.startChat(event)}>Start chat</a></td>
+            <td><a onClick={event => queueState.deleteTicket(event)}>Delete</a></td>
           </tr>
           <tr>
             <th scope="row">2</th>

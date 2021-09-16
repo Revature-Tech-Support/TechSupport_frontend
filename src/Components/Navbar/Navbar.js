@@ -11,6 +11,7 @@ const Navbar = () => {
               <a className="nav-link" href="/createTicket">Create Ticket</a>
               <a className="nav-link" href="/chat">Chat</a>
               <a className="nav-link" href="/queue">Queue</a>
+              <a className="nav-link" href="/history">History</a>
             </div>
         </div>
       </nav>
