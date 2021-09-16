@@ -25,6 +25,7 @@ const LoginOrRegister = () => {
           console.log(data);
           if (data) {
             localStorage.setItem('user', data)
+            window.location = "/createTicket"
           } else {
             alert("An error occurred during login. Please try again.")
             window.location = '/'
@@ -39,6 +40,7 @@ const LoginOrRegister = () => {
         })
         .then(({ data }) => {
           console.log(data)
+          window.location = "/createTicket"
         })
         .catch(err => console.error(err))
       }
@@ -64,9 +66,10 @@ const LoginOrRegister = () => {
         if (data) {
           console.log(data)
           localStorage.setItem('user', data)
+          window.location = "/createTicket"
         } else {
           console.log("error occurred")
-          alert("An error occurred during registering. Please try again.")
+          alert("An error occurred during registration. Please try again.")
           window.location = "/";
         }
       })
@@ -100,7 +103,6 @@ const LoginOrRegister = () => {
             name="registerPassword"
             placeholder="Password"
             onChange={event => loginState.handleInputChange(event)}
-            //onKeyPress={event => { if (event.key === 13) { handleRegister(event) } }}
           />
           <br />
           <button 
@@ -131,7 +133,6 @@ const LoginOrRegister = () => {
             name="loginPassword"
             placeholder="Password"
             onChange={event => loginState.handleInputChange(event)}
-            //onKeyPress={event => { if (event.key === 13) { handleLogin(event)} }}
           />
           <br />
           <button 

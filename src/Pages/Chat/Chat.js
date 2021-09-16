@@ -53,6 +53,9 @@ const Chat = ({ user, onClick }) => {
           <div className='row'>
             <div className='col'>
               <p className='chatTitle'>CHAT</p>
+              {/* <p className='chatTitle'>Client: {data.username}</p>
+              <p className='chatTitle'>Issue #: {data.ticketId}</p>
+              <p className='chatTitle'>Subject: {data.subject}</p> */}
             </div>
             <div className='col'>
               <button
@@ -73,18 +76,17 @@ const Chat = ({ user, onClick }) => {
                   {/* <p>{data.sender.username}</p> */}
                   {/* <div className='msgText'> {data.data.text}</div> */}
                   <p>SENDER</p>
-                  {/* <div className='msgText'>{messageState.displayText}</div> */}
                 </div>
               </li>
             </div>
-            ) : (
+            {/* ) : ( */}
             <div className='col'>
               <li className='receiver'>
                 <div className='msg'>
-                  {/* <p>{data.receiver.username}</p> */}
+                  {/* <p>{data.sender.username}</p> */}
                   {/*<div className='msgText'> {data.data.text} </div> */}
                   <p>RECEIVER</p>
-                  <div className='msgText'>Hi to You too!</div>
+                  {/* <div className='msgText'>Hi to You too!</div> */}
                 </div>
               </li>
             </div>
@@ -108,7 +110,7 @@ const Chat = ({ user, onClick }) => {
                 name='inputText'
                 placeholder='Type a message here'
                 value={input}
-                onChange={(event) => handleInputChange(event)}
+                onChange={event => handleInputChange(event)}
               />
               <button
                 className='btn btn-primary'

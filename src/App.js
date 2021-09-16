@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import './App.css';
 import { Route, Redirect, Switch } from "react-router-dom";
 import { BrowserRouter as Router } from "react-router-dom";
-import Jumbotron from './Components/Jumbotron';
 import LoginOrRegister from './Pages/LoginOrRegister';
 import Ticket from './Pages/Ticket';
 import Chat from './Pages/Chat';
@@ -18,7 +17,7 @@ const [user] = useState(null);
         <Switch>
           <Redirect exact from="/" to="/login" />
           <Route path="/login" component= {LoginOrRegister} />
-          <Route path="/ticket" component={Ticket} />
+          <Route path="/createTicket" component={Ticket} />
           <Route path="/chat" component={Chat} />
           <Route path="/queue" component={Queue} />
         </Switch>
