@@ -61,6 +61,14 @@ const Queue = () => {
           </tr>
         </thead>
         <tbody>
+          {/* <tr>
+            <th scope="row">${data.placeInQueue}</th>
+            <td>${data.username}</td>
+            <td>${data.minutesWaiting}</td>
+            <td>${data.subject}</td>
+            <td><a onClick={event => queueState.startChat(event)}>Start chat</a></td>
+            <td><a onClick={event => queueState.deleteTicket(event)}>Delete</a></td>
+          </tr> */}
           <tr>
             <th scope="row">1</th>
             <td>Cockroach Team</td>
@@ -74,32 +82,32 @@ const Queue = () => {
             <td>Dev-Ops</td>
             <td>3</td>
             <td>No code to test/document</td>
-            <td><a href="#">Start chat</a></td>
-            <td><a href="#">Delete</a></td>
+            <td><a onClick={event => queueState.startChat(event)}>Start chat</a></td>
+            <td><a onClick={event => queueState.deleteTicket(event)}>Delete</a></td>
           </tr>
           <tr>
             <th scope="row">3</th>
             <td>Front-end</td>
             <td>2</td>
             <td>React is hard</td>
-            <td><a href="#">Start chat</a></td>
-            <td><a href="#">Delete</a></td>
+            <td><a onClick={event => queueState.startChat(event)}>Start chat</a></td>
+            <td><a onClick={event => queueState.deleteTicket(event)}>Delete</a></td>
           </tr>
           <tr>
             <th scope="row">4</th>
             <td>Comms</td>
             <td>1</td>
             <td>Communication is hard</td>
-            <td><a href="#">Start chat</a></td>
-            <td><a href="#">Delete</a></td>
+            <td><a onClick={event => queueState.startChat(event)}>Start chat</a></td>
+            <td><a onClick={event => queueState.deleteTicket(event)}>Delete</a></td>
           </tr>
           <tr>
             <th scope="row">5</th>
             <td>Files and Transcripts</td>
             <td>1</td>
             <td>How do we even do this?</td>
-            <td><a href="#">Start chat</a></td>
-            <td><a href="#">Delete</a></td>
+            <td><a onClick={event => queueState.startChat(event)}>Start chat</a></td>
+            <td><a onClick={event => queueState.deleteTicket(event)}>Delete</a></td>
           </tr>
         </tbody>
       </table>

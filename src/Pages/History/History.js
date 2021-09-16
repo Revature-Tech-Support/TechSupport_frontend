@@ -14,14 +14,17 @@ const History = () => {
       </div>
 
       <div className='container'>
-        {/*<h2>Client: {data.username}</h2>
-        <h3>Issue # {data.ticketId}</h3>
-          <h3>Subject: {data.subject}</h3>*/}
+        {/*<h2>Issue # {data.ticketId}</h2>
+        <h3>Client: {data.username}</h3>
+        <h3>Subject: {data.subject}</h3>
+        <hr />
+        //Transcript to go here */}
       <div className="sheet">
         <div className='card-header'>Issue # 4</div>
-          <h5 className='card-title'>Client: Cockroach Team</h5>
-          <h5 className='card-text'>Subject: Won't die</h5>
-        <h5>Transcript:</h5>
+        <h5>Client: Cockroach Team</h5>
+        <h5>Subject: Won't die</h5>
+        <hr />
+        <h4>Transcript</h4>
         <p><b>Agent:</b> Hello, we read about your issue and its details. Is there anything you would like to add?</p>
         <p><b>Cockroach Team:</b> Yeah! We're getting shuffled around more than a deck of cards at a blackjack table!</p>
         <p><b>Agent:</b> ...</p>
