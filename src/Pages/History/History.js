@@ -30,7 +30,7 @@ const History = (props) => {
         <h3>Subject: {props.subject}</h3>
         <hr />
         //Transcript to go here */}
-      <div className="sheet">
+      <div className='sheet'>
         <div className='card-header'>Issue # 4</div>
         <h5>Client: Cockroach Team</h5>
         <h5>Subject: Won't die</h5>
@@ -43,7 +43,7 @@ const History = (props) => {
     </div>
     <Footer />
     </>
-  )
-}
+  );
+};
 
 export default History;

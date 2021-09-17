@@ -9,17 +9,17 @@ const Queue = () => {
 
   const startChat = event => {
     console.log(event)
-    // if (queueState.ticket.id === "ticketId") {
-      let openChat = window.confirm("This will open a chat with the corresponding client. Proceed?")
+    // if (queueState.ticket.id === 'ticketId') {
+      let openChat = window.confirm('This will open a chat with the corresponding client. Proceed?')
       if (openChat) {
-        window.location = "/chat"
+        window.location = '/chat'
     }
   };
 
   const deleteTicket = id => {
     console.log(id)
-    // if (queueState.ticket.id === "id") {
-      let removeTicket = window.confirm("This will remove the ticket from the queue list. Proceed?")
+    // if (queueState.ticket.id === 'id') {
+      let removeTicket = window.confirm('This will remove the ticket from the queue list. Proceed?')
       if (removeTicket) {
         axios.delete(`/tickets/${id}`)
           .then(() => {
@@ -40,27 +40,27 @@ const Queue = () => {
   return (
     <>
     <Navbar />
-    <div className="jumbotron">
-      <h1 className="display-4">Welcome to back to work!</h1>
-      <p className="lead"><b>Remember the golden question:</b> Have you tried turning it off and on again?</p>
-      <p className="lead"></p>
-      <hr className="my-4" />
+    <div className='jumbotron'>
+      <h1 className='display-4'>Welcome to back to work!</h1>
+      <p className='lead'><b>Remember the golden question:</b> Have you tried turning it off and on again?</p>
+      <p className='lead'></p>
+      <hr className='my-4' />
     </div>
-    <div className="container">
+    <div className='container'>
       <h2>QUEUE TABLE</h2>
-      <table className="table table-striped table-dark table-hover">
+      <table className='table table-striped table-dark table-hover'>
         <thead>
           <tr>
-            <th scope="col"># in Queue</th>
-            <th scope="col">Username</th>
-            <th scope="col">Minutes Waiting</th>
-            <th scope="col">Issue</th>
-            <th colSpan="3">Actions</th>
+            <th scope='col'># in Queue</th>
+            <th scope='col'>Username</th>
+            <th scope='col'>Minutes Waiting</th>
+            <th scope='col'>Issue</th>
+            <th colSpan='3'>Actions</th>
           </tr>
         </thead>
         <tbody>
           {/* <tr>
-            <th scope="row">${data.placeInQueue}</th>
+            <th scope='row'>${data.placeInQueue}</th>
             <td>${data.username}</td>
             <td>${data.minutesWaiting}</td>
             <td>${data.subject}</td>
@@ -69,7 +69,7 @@ const Queue = () => {
             <td><a onClick={event => queueState.retrieveHistory(event)}>History</a></td>
           </tr> */}
           <tr>
-            <th scope="row">1</th>
+            <th scope='row'>1</th>
             <td>Cockroach Team</td>
             <td>4</td>
             <td>Won't die</td>
@@ -78,7 +78,7 @@ const Queue = () => {
             <td><a onClick={event => retrieveHistory(event)}>History</a></td>
           </tr>
           <tr>
-            <th scope="row">2</th>
+            <th scope='row'>2</th>
             <td>Dev-Ops</td>
             <td>3</td>
             <td>No code to test/document</td>
@@ -87,7 +87,7 @@ const Queue = () => {
             <td><a onClick={event => retrieveHistory(event)}>History</a></td>
           </tr>
           <tr>
-            <th scope="row">3</th>
+            <th scope='row'>3</th>
             <td>Front-end</td>
             <td>2</td>
             <td>React is hard</td>
@@ -96,7 +96,7 @@ const Queue = () => {
             <td><a onClick={event => retrieveHistory(event)}>History</a></td>
           </tr>
           <tr>
-            <th scope="row">4</th>
+            <th scope='row'>4</th>
             <td>Comms</td>
             <td>1</td>
             <td>Communication is hard</td>
@@ -105,7 +105,7 @@ const Queue = () => {
             <td><a onClick={event => retrieveHistory(event)}>History</a></td>
           </tr>
           <tr>
-            <th scope="row">5</th>
+            <th scope='row'>5</th>
             <td>Files and Transcripts</td>
             <td>1</td>
             <td>How do we even do this?</td>
@@ -118,7 +118,7 @@ const Queue = () => {
       </div>
     <Footer />
     </>
-  )
-}
+  );
+};
 
 export default Queue;
