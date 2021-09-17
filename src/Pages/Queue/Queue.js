@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { cloneElement, useState } from 'react';
 import Navbar from '../../Components/Navbar';
 import Footer from '../../Components/Footer';
 import axios from 'axios';
@@ -33,11 +33,8 @@ const Queue = () => {
 
   const retrieveHistory = id => {
     console.log(id)
-    axios.get(`/tickets/${id}`)
-      .then(() => {
-        window.location="/history"
-      })
-      .catch(err => console.error(err))
+    // setQueueState({ data })
+    window.location='/history'
   }
 
   return (
@@ -54,11 +51,11 @@ const Queue = () => {
       <table className="table table-striped table-dark table-hover">
         <thead>
           <tr>
-            <th scope="col">ID #</th>
+            <th scope="col"># in Queue</th>
             <th scope="col">Username</th>
             <th scope="col">Minutes Waiting</th>
             <th scope="col">Issue</th>
-            <th colSpan="2">Actions</th>
+            <th colSpan="3">Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -69,46 +66,52 @@ const Queue = () => {
             <td>${data.subject}</td>
             <td><a onClick={event => queueState.startChat(event)}>Start chat</a></td>
             <td><a onClick={event => queueState.deleteTicket(event)}>Delete</a></td>
+            <td><a onClick={event => queueState.retrieveHistory(event)}>History</a></td>
           </tr> */}
           <tr>
             <th scope="row">1</th>
             <td>Cockroach Team</td>
             <td>4</td>
             <td>Won't die</td>
-            <td><a onClick={event => queueState.startChat(event)}>Start chat</a></td>
-            <td><a onClick={event => queueState.deleteTicket(event)}>Delete</a></td>
+            <td><a onClick={event => startChat(event)}>Start chat</a></td>
+            <td><a onClick={event => deleteTicket(event)}>Delete</a></td>
+            <td><a onClick={event => retrieveHistory(event)}>History</a></td>
           </tr>
           <tr>
             <th scope="row">2</th>
             <td>Dev-Ops</td>
             <td>3</td>
             <td>No code to test/document</td>
-            <td><a onClick={event => queueState.startChat(event)}>Start chat</a></td>
-            <td><a onClick={event => queueState.deleteTicket(event)}>Delete</a></td>
+            <td><a onClick={event => startChat(event)}>Start chat</a></td>
+            <td><a onClick={event => deleteTicket(event)}>Delete</a></td>
+            <td><a onClick={event => retrieveHistory(event)}>History</a></td>
           </tr>
           <tr>
             <th scope="row">3</th>
             <td>Front-end</td>
             <td>2</td>
             <td>React is hard</td>
-            <td><a onClick={event => queueState.startChat(event)}>Start chat</a></td>
-            <td><a onClick={event => queueState.deleteTicket(event)}>Delete</a></td>
+            <td><a onClick={event => startChat(event)}>Start chat</a></td>
+            <td><a onClick={event => deleteTicket(event)}>Delete</a></td>
+            <td><a onClick={event => retrieveHistory(event)}>History</a></td>
           </tr>
           <tr>
             <th scope="row">4</th>
             <td>Comms</td>
             <td>1</td>
             <td>Communication is hard</td>
-            <td><a onClick={event => queueState.startChat(event)}>Start chat</a></td>
-            <td><a onClick={event => queueState.deleteTicket(event)}>Delete</a></td>
+            <td><a onClick={event => startChat(event)}>Start chat</a></td>
+            <td><a onClick={event => deleteTicket(event)}>Delete</a></td>
+            <td><a onClick={event => retrieveHistory(event)}>History</a></td>
           </tr>
           <tr>
             <th scope="row">5</th>
             <td>Files and Transcripts</td>
             <td>1</td>
             <td>How do we even do this?</td>
-            <td><a onClick={event => queueState.startChat(event)}>Start chat</a></td>
-            <td><a onClick={event => queueState.deleteTicket(event)}>Delete</a></td>
+            <td><a onClick={event => startChat(event)}>Start chat</a></td>
+            <td><a onClick={event => deleteTicket(event)}>Delete</a></td>
+            <td><a onClick={event => retrieveHistory(event)}>History</a></td>
           </tr>
         </tbody>
       </table>
@@ -118,4 +121,4 @@ const Queue = () => {
   )
 }
 
-export default Queue
+export default Queue;

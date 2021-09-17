@@ -74,7 +74,7 @@ const Chat = ({ user, onClick }) => {
               <li className='sender'>
                 <div className='msg'>
                   {/* <p>{data.sender.username}</p> */}
-                  {/* <div className='msgText'> {data.data.text}</div> */}
+                  {/* <div className='msgText'> {data.text}</div> */}
                   <p>SENDER</p>
                 </div>
               </li>
@@ -84,7 +84,7 @@ const Chat = ({ user, onClick }) => {
               <li className='receiver'>
                 <div className='msg'>
                   {/* <p>{data.sender.username}</p> */}
-                  {/*<div className='msgText'> {data.data.text} </div> */}
+                  {/*<div className='msgText'> {data.text} </div> */}
                   <p>RECEIVER</p>
                   {/* <div className='msgText'>Hi to You too!</div> */}
                 </div>

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
-import { Route, Redirect, Switch } from "react-router-dom";
-import { BrowserRouter as Router } from "react-router-dom";
+import { Route, Redirect, Switch, BrowserRouter as Router } from "react-router-dom";
 import LoginOrRegister from './Pages/LoginOrRegister';
 import Ticket from './Pages/Ticket';
 import Chat from './Pages/Chat';
