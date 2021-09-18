@@ -46,7 +46,7 @@ const LoginOrRegister = () => {
       }
 
   const [registerState, setRegisterState] = useState({
-    users: [],
+    users: '',
     handleRegister: '',
     handleInputChange: ''
   })
