@@ -73,11 +73,7 @@ const Ticket = () => {
               onChange={event => handleIssueChange(event)}
               required
             >
-<<<<<<< HEAD
               {}
-=======
-              { }
->>>>>>> 928d94c... incorporated Tam's changes
             </textarea>
           </div>
           <div className='mb-3'>
