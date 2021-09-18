@@ -22,13 +22,13 @@ const Chat = ({ user }) => {
   const sendMessage = event => {
     event.preventDefault();
     if (input !== '') {
+      webSocket.current.send(JSON.stringify({ username: user, message: input, timestamp: Date.now() }));
       setInput('');
-      webSocket.current.send(input);
     }
   };
 
   const handleCloseChat = event => {
-    if (user === 'user') {
+    if (user === 'user') { // this comparison will need to be updated
       window.confirm('You have left the chat and will now be redirected to the login/register page.');
       // clears user from localStorage, thereby logging them out
       window.localStorage.clear();
@@ -56,7 +56,7 @@ const Chat = ({ user }) => {
 
   useEffect(() => {
     webSocket.current.onmessage = (event) => {
-      setMessages(messages => [...messages, event.data]);
+      setMessages(messages => [...messages, JSON.parse(event.data)]);
     };
   }, [messages]);
 
@@ -89,25 +89,19 @@ const Chat = ({ user }) => {
             <div className='col'>
               <li className='sender'>
                 <div className='msg'>
-                  {/* <p>{data.sender.username}</p> */}
-                  {/* <div className='msgText'> {data.data.text}</div> */}
                   <p>SENDER</p>
                 </div>
               </li>
             </div>
-            {/* ) : ( */}
             <div className='col'>
               <li className='receiver'>
                 <div className='msg'>
-                  {/* <p>{data.sender.username}</p> */}
-                  {/* <div className='msgText'> {data.data.text} </div> */}
                   <p>RECEIVER</p>
-                  {/* <div className='msgText'>Hi to You too!</div> */}
                 </div>
               </li>
             </div>
             {messages.map(message => (
-              <Message key={messages.id} message={message} />
+              <Message key={message.id} message={message} />
             ))}
             <div
               ref={scrollRef}
