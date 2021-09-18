@@ -49,19 +49,9 @@ const Chat = ({ user }) => {
 
   useEffect(() => {
     webSocket.current = new window.WebSocket('ws://localhost:8080/ws');
-  }, []);
-
-  useEffect(() => {
     webSocket.current.onopen = () => {
       console.log('Connected to websocket');
     };
-
-    webSocket.current.onmessage = (event) => {
-      console.log(messages);
-      console.log(event.data);
-      setMessages([...messages, event.data]);
-    };
-
     webSocket.current.onerror = (error) => {
       console.log(error);
     };
@@ -69,8 +59,18 @@ const Chat = ({ user }) => {
     webSocket.current.onclose = () => {
       console.log('Disconnected from websocket');
     };
-  });
+  }, []);
 
+  useEffect(() => {
+
+    webSocket.current.onmessage = (event) => {
+      // console.log(messages);
+      // console.log(event.data);
+      setMessages(messages => [...messages, event.data]);
+    };
+
+  }, [messages]);
+  
   return (
     <>
       <Navbar />
