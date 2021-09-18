@@ -7,12 +7,12 @@ import './Chat.css';
 // import axios from 'axios';
 
 const Chat = ({ user }) => {
+  const scrollRef = useRef();
+  const webSocket = useRef();
+
   // states
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState([]);
-
-  const scrollRef = useRef();
-  const webSocket = useRef();
 
   // event handlers
   const handleInputChange = event => {
@@ -21,10 +21,8 @@ const Chat = ({ user }) => {
 
   const sendMessage = event => {
     event.preventDefault();
-    // the next lines are only used for testing purposes and should be removed once backend is set up
     if (input !== '') {
       setInput('');
-      // send message here (need websocket defined)
       webSocket.current.send(input);
     }
   };
@@ -42,35 +40,26 @@ const Chat = ({ user }) => {
     }
   };
 
-  const printuser = event => {
-    event.preventDefault();
-    console.log(user);
-  };
-
   useEffect(() => {
     webSocket.current = new window.WebSocket('ws://localhost:8080/ws');
+
     webSocket.current.onopen = () => {
       console.log('Connected to websocket');
     };
     webSocket.current.onerror = (error) => {
       console.log(error);
     };
-
     webSocket.current.onclose = () => {
       console.log('Disconnected from websocket');
     };
   }, []);
 
   useEffect(() => {
-
     webSocket.current.onmessage = (event) => {
-      // console.log(messages);
-      // console.log(event.data);
       setMessages(messages => [...messages, event.data]);
     };
-
   }, [messages]);
-  
+
   return (
     <>
       <Navbar />
@@ -146,12 +135,6 @@ const Chat = ({ user }) => {
                 onClick={event => sendMessage(event)}
               >
                 Send
-              </button>
-              <button
-                className='btn btn-primary'
-                onClick={event => printuser(event)}
-              >
-                click
               </button>
             </form>
           </div>
