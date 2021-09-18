@@ -1,48 +1,64 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Message from '../../Components/Message';
 import Navbar from '../../Components/Navbar';
 import Jumbotron from '../../Components/Jumbotron';
 import Footer from '../../Components/Footer';
 import './Chat.css';
-import axios from 'axios';
+// import axios from 'axios';
 
-const Chat = ({ user, onClick }) => {
-
+const Chat = ({ user }) => {
   const scrollRef = useRef();
+  const webSocket = useRef();
 
   // states
-  const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
-  const [closed, setClosed] = useState(true);
+  const [messages, setMessages] = useState([]);
 
   // event handlers
   const handleInputChange = event => {
     setInput(event.target.value);
-  }
+  };
 
   const sendMessage = event => {
-    event.preventDefault()
-    //the next lines are only used for testing purposes and should be removed once backend is set up
+    event.preventDefault();
     if (input !== '') {
+      webSocket.current.send(JSON.stringify({ username: user, message: input, timestamp: Date.now() }));
       setInput('');
-      // send message here (need websocket defined)
-      // ws.send({user, message});
-    }
-  }
-
-  const handleCloseChat = event => {
-    setClosed(true);
-    if (user === 'user') {
-      alert('You have left the chat and will now be redirected to the login/register page.')
-      // clears user from localStorage, thereby logging them out
-      localStorage.clear();
-      window.location = '/'
-    } else {
-      // this is for tech support and redirects them to the queue
-      alert('Issue has been marked as resolved.')
-      window.location = '/queue'
     }
   };
+
+  const handleCloseChat = event => {
+    if (user === 'user') { // this comparison will need to be updated
+      window.confirm('You have left the chat and will now be redirected to the login/register page.');
+      // clears user from localStorage, thereby logging them out
+      window.localStorage.clear();
+      window.location = '/';
+    } else {
+      // this is for tech support and redirects them to the queue
+      window.confirm('Issue has been marked as resolved.');
+      window.location = '/queue';
+    }
+  };
+
+  useEffect(() => {
+    webSocket.current = new window.WebSocket('ws://localhost:8080/ws');
+
+    webSocket.current.onopen = () => {
+      console.log('Connected to websocket');
+    };
+    webSocket.current.onerror = (error) => {
+      console.log(error);
+    };
+    webSocket.current.onclose = () => {
+      console.log('Disconnected from websocket');
+    };
+  }, []);
+
+  useEffect(() => {
+    webSocket.current.onmessage = (event) => {
+      setMessages(messages => [...messages, JSON.parse(event.data)]);
+    };
+  }, [messages]);
 
   return (
     <>
@@ -73,20 +89,14 @@ const Chat = ({ user, onClick }) => {
             <div className='col'>
               <li className='sender'>
                 <div className='msg'>
-                  {/* <p>{data.sender.username}</p> */}
-                  {/* <div className='msgText'> {data.text}</div> */}
                   <p>SENDER</p>
                 </div>
               </li>
             </div>
-            {/* ) : ( */}
             <div className='col'>
               <li className='receiver'>
                 <div className='msg'>
-                  {/* <p>{data.sender.username}</p> */}
-                  {/*<div className='msgText'> {data.text} </div> */}
                   <p>RECEIVER</p>
-                  {/* <div className='msgText'>Hi to You too!</div> */}
                 </div>
               </li>
             </div>
@@ -96,7 +106,9 @@ const Chat = ({ user, onClick }) => {
             <div
               ref={scrollRef}
               // className='scroll'
-              style={{ float: 'left', clear: 'both', paddingTop: '4rem' }}>
+              style={{ float: 'left', clear: 'both', paddingTop: '4rem' }}
+            >
+              {}
             </div>
           </div>
         </ul>
@@ -125,6 +137,6 @@ const Chat = ({ user, onClick }) => {
       <Footer />
     </>
   );
-}
+};
 
 export default Chat;

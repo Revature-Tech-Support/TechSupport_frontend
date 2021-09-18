@@ -8,23 +8,22 @@ import Queue from './Pages/Queue';
 import History from './Pages/History';
 
 const App = () => {
+  const [user, setUser] = useState(window.localStorage.getItem('username'));
 
-const [user] = useState(null);
-  //return user == null ? (
-  return(
+  return (
     <>
       <Router>
         <Switch>
           <Redirect exact from='/' to='/login' />
-          <Route path='/login' component= {LoginOrRegister} />
+          <Route path='/login' component={LoginOrRegister} />
+          <Route path='/chat' component={() => <Chat user={user} />} />
           <Route path='/createTicket' component={Ticket} />
-          <Route path='/chat' component={Chat} />
           <Route path='/queue' component={Queue} />
           <Route path='/history' component={History} />
         </Switch>
       </Router>
     </>
-  ); 
+  );
 };
 
 export default App;
