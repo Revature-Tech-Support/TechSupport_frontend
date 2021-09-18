@@ -1,8 +1,19 @@
 import React from 'react'; 
 import Navbar from '../../Components/Navbar';
 import Footer from '../../Components/Footer';
+import axios from 'axios';
 
-const History = () => {
+const History = (props) => {
+
+  const retrieveTranscript = () => {
+    props.retrieveHistory([])
+    axios.get(`/tickets/${props.id}`)
+      .then(({ data }) => {
+        console.log(data)
+      })
+      .catch(err => console.error(err))
+  }
+
   return (
     <>
     <Navbar />
@@ -14,12 +25,12 @@ const History = () => {
       </div>
 
       <div className='container'>
-        {/*<h2>Issue # {data.ticketId}</h2>
-        <h3>Client: {data.username}</h3>
-        <h3>Subject: {data.subject}</h3>
+        {/*<h2>Issue # {props.ticketId}</h2>
+        <h3>Client: {props.username}</h3>
+        <h3>Subject: {props.subject}</h3>
         <hr />
         //Transcript to go here */}
-      <div className="sheet">
+      <div className='sheet'>
         <div className='card-header'>Issue # 4</div>
         <h5>Client: Cockroach Team</h5>
         <h5>Subject: Won't die</h5>
@@ -32,7 +43,7 @@ const History = () => {
     </div>
     <Footer />
     </>
-  )
-}
+  );
+};
 
 export default History;

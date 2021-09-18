@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import Navbar from "../../Components/Navbar";
+import Navbar from '../../Components/Navbar';
 import Jumbotron from '../../Components/Jumbotron';
-import Footer from "../../Components/Footer";
+import Footer from '../../Components/Footer';
 
 const LoginOrRegister = () => {
 
@@ -25,9 +25,9 @@ const LoginOrRegister = () => {
           console.log(data);
           if (data) {
             localStorage.setItem('user', data)
-            window.location = "/createTicket"
+            window.location = '/createTicket'
           } else {
-            alert("An error occurred during login. Please try again.")
+            alert('An error occurred during login. Please try again.')
             window.location = '/'
           }
         })
@@ -40,7 +40,7 @@ const LoginOrRegister = () => {
         })
         .then(({ data }) => {
           console.log(data)
-          window.location = "/createTicket"
+          window.location = '/createTicket'
         })
         .catch(err => console.error(err))
       }
@@ -66,11 +66,11 @@ const LoginOrRegister = () => {
         if (data) {
           console.log(data)
           localStorage.setItem('user', data)
-          window.location = "/createTicket"
+          window.location = '/createTicket'
         } else {
-          console.log("error occurred")
-          alert("An error occurred during registration. Please try again.")
-          window.location = "/";
+          console.log('error occurred')
+          alert('An error occurred during registration. Please try again.')
+          window.location = '/';
         }
       })
       .catch(err => console.error(err))
@@ -80,64 +80,64 @@ const LoginOrRegister = () => {
     <>
     <Navbar />
     <Jumbotron />
-    <form id="loginForm">
-      <div className="row">
-          <h3 id="alertDiv">To begin, log in or register below!</h3>
-          <div className="col-sm-3 offset-md-3">
-          <label htmlFor="registerName" className="form-label">Register here</label>
+    <form id='loginForm'>
+      <div className='row'>
+          <h3 id='alertDiv'>To begin, log in or register below!</h3>
+          <div className='col-sm-3 offset-md-3'>
+          <label htmlFor='registerName' className='form-label'>Register here</label>
           <input 
-            className="form-control" 
-            type="text" 
-            aria-label="Register Input"
+            className='form-control' 
+            type='text' 
+            aria-label='Register Input'
             id='registerName'
             name='registerName'
-            placeholder="Username"
+            placeholder='Username'
             onChange={event => loginState.handleInputChange(event)}
           />
           <br />
           <input
-            className="form-control"
-            type="password"
-            aria-label="Register Password"
-            id="registerPassword"
-            name="registerPassword"
-            placeholder="Password"
+            className='form-control'
+            type='password'
+            aria-label='Register Password'
+            id='registerPassword'
+            name='registerPassword'
+            placeholder='Password'
             onChange={event => loginState.handleInputChange(event)}
           />
           <br />
           <button 
-            type="button" 
-            className="btn btn-primary"
+            type='button' 
+            className='btn btn-primary'
             onClick={event => registerState.handleRegister(event)}
           >
             Register
           </button>
         </div>
-          <div className="col-sm-3">
-          <label htmlFor="loginName" className="form-label">Log in here</label>
+          <div className='col-sm-3'>
+          <label htmlFor='loginName' className='form-label'>Log in here</label>
           <input 
-            className="form-control" 
-            type="text" 
-            aria-label="Login Name"
+            className='form-control' 
+            type='text' 
+            aria-label='Login Name'
             id='loginName'
             name='loginName'
-            placeholder="Username"
+            placeholder='Username'
             onChange={event => loginState.handleInputChange(event)}
           />
           <br />
           <input
-            className="form-control"
-            type="password"
-            aria-label="Login Password"
-            id="loginPassword"
-            name="loginPassword"
-            placeholder="Password"
+            className='form-control'
+            type='password'
+            aria-label='Login Password'
+            id='loginPassword'
+            name='loginPassword'
+            placeholder='Password'
             onChange={event => loginState.handleInputChange(event)}
           />
           <br />
           <button 
-            type="button" 
-            className="btn btn-info"
+            type='button' 
+            className='btn btn-info'
             onClick={event => loginState.handleLogin(event)}
           >
             Log In
@@ -148,6 +148,6 @@ const LoginOrRegister = () => {
     <Footer />
     </>
   );
-}
+};
 
 export default LoginOrRegister;
