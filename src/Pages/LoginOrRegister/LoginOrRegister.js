@@ -68,7 +68,6 @@ const LoginOrRegister = () => {
           localStorage.setItem('user', data)
           window.location = '/createTicket'
         } else {
-          console.log('error occurred')
           alert('An error occurred during registration. Please try again.')
           window.location = '/';
         }

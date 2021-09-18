@@ -4,7 +4,6 @@ import Navbar from '../../Components/Navbar';
 import Jumbotron from '../../Components/Jumbotron';
 import Footer from '../../Components/Footer';
 import './Chat.css';
-// import axios from 'axios';
 
 const Chat = ({ user }) => {
   const scrollRef = useRef();
@@ -28,9 +27,9 @@ const Chat = ({ user }) => {
   };
 
   const handleCloseChat = event => {
-    if (user === 'user') { // this comparison will need to be updated
+    if (user === 'client') { // this comparison will need to be updated
       window.confirm('You have left the chat and will now be redirected to the login/register page.');
-      // clears user from localStorage, thereby logging them out
+      // clears client from localStorage, thereby logging them out
       window.localStorage.clear();
       window.location = '/';
     } else {
@@ -114,7 +113,7 @@ const Chat = ({ user }) => {
         </ul>
 
         <div className='row'>
-          <div className='m chatInputWrapper'>
+          <div className='chatInputWrapper'>
             <form>
               <input
                 id='messageInput'

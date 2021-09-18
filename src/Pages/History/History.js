@@ -3,11 +3,10 @@ import Navbar from '../../Components/Navbar';
 import Footer from '../../Components/Footer';
 import axios from 'axios';
 
-const History = (props) => {
+const History = ({ userId }) => {
 
-  const retrieveTranscript = () => {
-    props.retrieveHistory([])
-    axios.get(`/tickets/${props.id}`)
+  const retrieveTranscript = userId => {
+    axios.get(`/tickets/${userId}`)
       .then(({ data }) => {
         console.log(data)
       })

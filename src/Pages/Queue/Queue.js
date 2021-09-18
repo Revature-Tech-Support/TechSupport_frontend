@@ -3,9 +3,10 @@ import Navbar from '../../Components/Navbar';
 import Footer from '../../Components/Footer';
 import axios from 'axios';
 
-const Queue = () => {
+const Queue = ({ ticketId }) => {
 
   const [queueState, setQueueState] = useState([])
+  const [userId, setUserId] = useState(window.localStorage.getItem('userId'));
 
   const startChat = event => {
     console.log(event)
@@ -16,23 +17,28 @@ const Queue = () => {
     }
   };
 
-  const deleteTicket = id => {
-    console.log(id)
+  const deleteTicket = ticketId => {
+    console.log(ticketId)
     // if (queueState.ticket.id === 'id') {
       let removeTicket = window.confirm('This will remove the ticket from the queue list. Proceed?')
       if (removeTicket) {
-        axios.delete(`/tickets/${id}`)
+        axios.delete(`/tickets/${ticketId}`)
           .then(() => {
             const queue = JSON.parse(JSON.stringify(queueState.tickets))
-            const queueFiltered = queue.filter(ticket => ticket._id !== id)
+            const queueFiltered = queue.filter(ticket => ticket._id !== ticketId)
             setQueueState({ ...queueState, queue: queueFiltered })
           })
           .catch(err => console.error(err))
       }
     }
 
-  const retrieveHistory = id => {
-    console.log(id)
+  //useEffect here?
+  const createRow = ticketId => {
+    console.log(ticketId)
+  }
+
+  const retrieveHistory = userId => {
+    console.log(userId)
     // setQueueState({ data })
     window.location='/history'
   }
@@ -75,7 +81,7 @@ const Queue = () => {
             <td>Won't die</td>
             <td><a onClick={event => startChat(event)}>Start chat</a></td>
             <td><a onClick={event => deleteTicket(event)}>Delete</a></td>
-            <td><a onClick={event => retrieveHistory(event)}>History</a></td>
+            <td><a onClick={userId => retrieveHistory(userId)}>History</a></td>
           </tr>
           <tr>
             <th scope='row'>2</th>
