@@ -89,7 +89,7 @@ const Ticket = () => {
           <button
             type='submit'
             className='btn btn-primary'
-            onClick={submitTicket}
+            onClick={event => submitTicket(event)}
           >
             Submit
           </button>
