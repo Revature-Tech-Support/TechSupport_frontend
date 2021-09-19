@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 
 const Navbar = () => {
-  const [user] = useState(['agent'])
+  const [user] = useState(['client'])
   
   return (
-    user === 'agent' ? (
+    user == 'agent' ? (
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-secondary">
         <div className="container-fluid">
