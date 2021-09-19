@@ -7,7 +7,7 @@ The front end for a tech support platform developed for Revature
 
 
 ## Goal:
-[insert]
+Create an interface for clients to create an account and receive tech support from a specialist.
 
 
 ## User Stories:
@@ -32,6 +32,10 @@ The front end for a tech support platform developed for Revature
 - Springboot
 - Spring Cloud
 
+## Acknowledgements
+Special thanks to:
+- Samuel Omole of freeCodeCamp
+- Subhransu Maharana of dev.to
 
 ## Getting Started
 ```https://github.com/Revature-Tech-Support/TechSupport_frontend.git```
