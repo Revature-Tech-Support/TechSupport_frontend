@@ -1,12 +1,10 @@
-import React, { cloneElement, useState } from 'react';
+import React, { useState } from 'react';
 import Navbar from '../../Components/Navbar';
 import Footer from '../../Components/Footer';
-import axios from 'axios';
 
 const Queue = ({ ticketId }) => {
 
-  const [queueState, setQueueState] = useState([])
-  const [userId, setUserId] = useState(window.localStorage.getItem('userId'));
+  //const [userId, setUserId] = useState(window.localStorage.getItem('userId'));
 
   const startChat = event => {
     console.log(event)
@@ -15,13 +13,6 @@ const Queue = ({ ticketId }) => {
         window.location = '/chat'
     }
   };
-
-
-  const retrieveHistory = userId => {
-    console.log(userId)
-    // setQueueState({ data })
-    window.location='/history'
-  }
 
   return (
     <>

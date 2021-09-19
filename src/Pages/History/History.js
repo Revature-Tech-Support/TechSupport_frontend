@@ -1,16 +1,37 @@
-import React from 'react'; 
+import React, { useEffect, useState } from 'react'; 
 import Navbar from '../../Components/Navbar';
 import Footer from '../../Components/Footer';
 import axios from 'axios';
 
-const History = ({ userId }) => {
+const History = () => {
+  const [data, setData] = useState('');
+  // const retrieveTranscript = userId => {
+  //   axios.get(`/tickets/${userId}`)
+  //     .then(({ data }) => {
+  //       console.log(data)
+  //     })
+  //     .catch(err => console.error(err))
+  // }
 
-  const retrieveTranscript = userId => {
-    axios.get(`/tickets/${userId}`)
-      .then(({ data }) => {
-        console.log(data)
+  // componentWillMount() {
+  //   localStorage.pagedata = data;
+  //   // set the data in state and use it through the component
+  // }
+
+  const displayData = () => {
+    const data = JSON.parse(localStorage.getItem('transcripts'))
+    console.log(data)
+    return data ? (
+      data.map(data => {
+        return (
+          <div className='data' key={data.id}>
+            <h3>{data.name}</h3>
+          </div>
+        );
       })
-      .catch(err => console.error(err))
+    ) : (
+      <h3>No data yet</h3>
+    );
   }
 
   return (
@@ -24,21 +45,7 @@ const History = ({ userId }) => {
       </div>
 
       <div className='container'>
-        {/*<h2>Issue # {props.ticketId}</h2>
-        <h3>Client: {props.username}</h3>
-        <h3>Subject: {props.subject}</h3>
-        <hr />
-        //Transcript to go here */}
-      <div className='sheet'>
-        <div className='card-header'>Issue # 4</div>
-        <h5>Client: Cockroach Team</h5>
-        <h5>Subject: Won't die</h5>
-        <hr />
-        <h4>Transcript</h4>
-        <p><b>Agent:</b> Hello, we read about your issue and its details. Is there anything you would like to add?</p>
-        <p><b>Cockroach Team:</b> Yeah! We're getting shuffled around more than a deck of cards at a blackjack table!</p>
-        <p><b>Agent:</b> ...</p>
-      </div>
+        {displayData()}
     </div>
     <Footer />
     </>
