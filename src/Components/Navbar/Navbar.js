@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 
 const Navbar = () => {
-  const [user] = useState(['client'])
+  const [user] = useState(['agent'])
+
+  const [setRedirect] = useState(false)
 
   const signOut = () => {
-    sessionStorage.removeItem('user');
-    sessionStorage.clear();
+    localStorage.removeItem('user');
+    localStorage.clear();
     window.location = './login';
+    setRedirect(true);
   }
 
   if (user == null) {
@@ -16,6 +19,7 @@ const Navbar = () => {
           <div className='container-fluid'>
             <a className='navbar-brand' href='www.revature.com'>Revature</a>
             <div className='navbar-nav'>
+              <a className='nav-link' href='/'>Home</a>
               <a className='nav-link' href='/login'>Login/Register</a>
             </div>
           </div>
