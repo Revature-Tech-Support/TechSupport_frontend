@@ -1,36 +1,22 @@
-import React, { useEffect, useState } from 'react'; 
+import React from 'react'; 
 import Navbar from '../../Components/Navbar';
 import Footer from '../../Components/Footer';
-import axios from 'axios';
 
 const History = () => {
-  const [data, setData] = useState('');
-  // const retrieveTranscript = userId => {
-  //   axios.get(`/tickets/${userId}`)
-  //     .then(({ data }) => {
-  //       console.log(data)
-  //     })
-  //     .catch(err => console.error(err))
-  // }
 
-  // componentWillMount() {
-  //   localStorage.pagedata = data;
-  //   // set the data in state and use it through the component
-  // }
-
-  const displayData = () => {
-    const data = JSON.parse(localStorage.getItem('transcripts'))
-    console.log(data)
-    return data ? (
-      data.map(data => {
+  const displayTranscripts = () => {
+    const transcripts = JSON.parse(localStorage.getItem('transcripts'))
+    console.log(transcripts)
+    return transcripts ? (
+      transcripts.map(transcripts => {
         return (
-          <div className='data' key={data.id}>
-            <h3>{data.name}</h3>
+          <div className='transcripts' key={transcripts.id}>
+            <h3>{transcripts.name}</h3>
           </div>
         );
       })
     ) : (
-      <h3>No data yet</h3>
+      <h3>No transcripts yet</h3>
     );
   }
 
@@ -39,13 +25,13 @@ const History = () => {
     <Navbar />
       <div className='jumbotron'>
         <h1 className='display-4'>Welcome to the transaction history page!</h1>
-        <p className='lead'>A good place to take a walk down memory lane...or just to find out where you did the last time this issue came up.</p>
+        <p className='lead'>A good place to take a walk down memory lane...or to do some light reading.</p>
         <p className='lead'></p>
         <hr className='my-4' />
       </div>
 
       <div className='container'>
-        {displayData()}
+        {displayTranscripts()}
     </div>
     <Footer />
     </>

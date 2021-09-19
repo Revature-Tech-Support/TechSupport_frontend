@@ -13,9 +13,6 @@ const Chat = ({ user }) => {
   // states
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState([]);
-  const [transcripts, setTranscripts] = useState([]);
-  //for testing purposes
-  const [data, setData]=useState([]);
 
   // event handlers
   const handleInputChange = event => {
@@ -56,20 +53,6 @@ const Chat = ({ user }) => {
       window.open('/history', '_blank')
     })
     .catch(err => console.error(err))
-  }
-
-  const displayData = () => {
-    return data ? (
-      data.map((data) => {
-        return (
-          <div className='data' key={data.id}>
-            <h3>{data.name}</h3>
-          </div>
-        );
-      })
-    ) : (
-      <h3>No data yet</h3>
-    );
   }
 
   useEffect(() => {
