@@ -23,14 +23,12 @@ Create an interface for clients to create an account and receive tech support fr
 
 
 ## Technology:
-- HTML
-- Javascript
-- CSS
-- BootStrap
-- React JS
-- Java
-- Springboot
-- Spring Cloud
+- HTML5
+- CSS3
+- JavaScript
+- Bootstrap
+- React 
+- Axios
 
 ## Acknowledgements
 Special thanks to:
@@ -43,8 +41,9 @@ I couldn't have done it without you.
 ## Getting Started
 1) git clone ```https://github.com/Revature-Tech-Support/TechSupport_frontend.git```
 2) cd into folder of directory
-3) install nodeJS: https://nodejs.org/en/
+3) install nodeJS on Windows: https://nodejs.org/en/
+    for Mac OS: https://www.fosstechnix.com/install-node-js-on-mac/
 4) ```npm init``` in the command line, then follow prompts (alternatively, you can use ```npm init --y``` to automatically flag 'yes' to all the prompts)
 5) ```npm i``` 
 6) ```npm run``` (this should open the react app in your browser of choice)
-* Note: On arch linux, nodeJS is a dependency of npm so if you are using this operating system, run ```sudo pacman -S npm``` to install npm.
+* NOTE: On Linux, nodeJS is a dependency of npm; please install according to the distribution you are using.
