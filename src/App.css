@@ -15,15 +15,15 @@ body {
   width: 50%;
 }
 
-.card{
+.card {
   margin: auto;
 }
 
-.sheet{
+.sheet {
   border: 2px solid black;
   box-shadow: 5px 10px gray;
 }
 
-.transcripts{
+.transcripts {
   margin-left: 100px;
 }

@@ -17,7 +17,7 @@ const Navbar = () => {
       <>
         <nav className='navbar navbar-expand-lg navbar-light bg-secondary'>
           <div className='container-fluid'>
-            <a className='navbar-brand' href='www.revature.com'>Revature</a>
+            <a className='navbar-brand' href='www.revature.com'></a>
             <div className='navbar-nav'>
               <a className='nav-link' href='/'>Home</a>
               <a className='nav-link' href='/login'>Login/Register</a>
