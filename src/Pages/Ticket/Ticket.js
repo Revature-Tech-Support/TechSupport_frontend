@@ -67,7 +67,7 @@ const Ticket = () => {
             <textarea
               className='form-control'
               id='textArea'
-              rows='4'
+              rows='3'
               placeholder='Please enter in details about your issue.'
               input={issue}
               onChange={event => handleIssueChange(event)}
