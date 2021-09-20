@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import Navbar from '../../Components/Navbar';
-import Jumbotron from '../../Components/Jumbotron';
-import Footer from '../../Components/Footer';
+import Layout from '../../Components/Layout/Layout';
 
 const LoginOrRegister = () => {
 
@@ -77,11 +75,10 @@ const LoginOrRegister = () => {
       
   return (
     <>
-    <Navbar />
-    <Jumbotron />
+    <Layout>
     <form id='loginForm' className='form'>
       <div className='row justify-content-center'>
-          <h3 id='alertDiv' className='pb-5 alert'>Get started!</h3>
+          <h3 id='alertDiv' className='pb-5 alert display-4'>Get started!</h3>
           <div className='col-sm-3 input-form'>
           {/* <label htmlFor='registerName' className='form-label'>Register here</label> */}
           <input 
@@ -144,7 +141,7 @@ const LoginOrRegister = () => {
         </div>
       </div>
     </form>
-    <Footer />
+    </Layout>
     </>
   );
 };

@@ -18,7 +18,7 @@ h5 {
 
 .main-navbar {
   box-shadow: 6px 6px 45px #ff6000;
-  background-color: #ffffff !important;
+  background-color: #f8f9fa !important;
 }
 
 .navbar-brand > img {
@@ -92,6 +92,7 @@ h5 {
 .form {
   padding: 6em 3em;
   margin-top: -2em;
+  padding-bottom: 15em;
 }
 
 .input-form {
@@ -116,5 +117,36 @@ h5 {
 }
 
 .alert {
+  color: #f36f2c;
+}
+
+.btn{
+  cursor: pointer;
+  /* color: #fff; */
+  /* background: #304d6d; */
+  border-radius: 7.5px;
+  padding: 12px 16px;
+}
+
+.btn-outline-primary {
+  color: #3498DB;
+  border-color: #3498DB;
+  padding: 12px 60px;
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary:active,
+.btn-outline-primary:focus,
+.btn-outline-primary::selection
+{
+    background: #3498DB;
+    border-color: #3498DB;
+}
+
+.create-ticket{
+  padding: 5em 0em;
+}
+
+.ticket-header{
   color: #f36f2c;
 }

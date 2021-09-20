@@ -17,7 +17,7 @@ const Navbar = () => {
       <>
         <nav className='navbar navbar-expand-lg navbar-light bg-secondary'>
           <div className='container'>
-            <a className='navbar-brand' href='www.revature.com'> <img 
+            <a className='navbar-brand' href='/'> <img 
               src='./resources/imgs/logo.png'
               alt='logo'></img></a>
             <div className='navbar-nav'>
@@ -33,7 +33,7 @@ const Navbar = () => {
       <>
         <nav className='navbar navbar-expand-lg navbar-light bg-secondary main-navbar'>
           <div className='container'>
-            <a className='navbar-brand' href='www.revature.com'>
+            <a className='navbar-brand' href='/'>
               <img 
               src='./resources/imgs/logo.png'
               alt='logo'></img></a>
@@ -52,7 +52,7 @@ const Navbar = () => {
       <>
         <nav className='navbar navbar-expand-lg navbar-light bg-secondary'>
           <div className='container-fluid'>
-            <a className='navbar-brand' href='www.revature.com'> <img 
+            <a className='navbar-brand' href='/'> <img 
               src='./resources/imgs/logo.png'
               alt='logo'></img></a>
             <div className='navbar-nav'>

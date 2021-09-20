@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import './App.css';
 import { Route, Redirect, Switch, BrowserRouter as Router } from 'react-router-dom';
 //import Home from './Pages/Home';
-import LoginOrRegister from './Pages/LoginOrRegister';
-import Ticket from './Pages/Ticket';
-import Chat from './Pages/Chat';
-import Queue from './Pages/Queue';
+import LoginOrRegister from './Pages/LoginOrRegister/LoginOrRegister';
+import Ticket from './Pages/Ticket/Ticket';
+import Chat from './Pages/Chat/Chat';
+import Queue from './Pages/Queue/Queue';
 //import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 
 const App = () => {
