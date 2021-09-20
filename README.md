@@ -44,7 +44,7 @@ I couldn't have done it without you.
 1) git clone ```https://github.com/Revature-Tech-Support/TechSupport_frontend.git```
 2) cd into folder of directory
 3) install nodeJS: https://nodejs.org/en/
-4) type in ```npm init``` in the command line, then follow prompts (alternatively, you can use ```npm init --y``` to automatically flag 'yes' to all the prompts)
+4) ```npm init``` in the command line, then follow prompts (alternatively, you can use ```npm init --y``` to automatically flag 'yes' to all the prompts)
 5) ```npm i``` 
 6) ```npm run``` (this should open the react app in your browser of choice)
-* Note: On arch linux, nodeJS is a dependency of npm so if you are using this operating system, run ```sudo pacman -S npm``` instead
+* Note: On arch linux, nodeJS is a dependency of npm so if you are using this operating system, run ```sudo pacman -S npm``` to install npm.
