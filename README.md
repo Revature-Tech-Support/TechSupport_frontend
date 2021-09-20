@@ -36,6 +36,15 @@ Create an interface for clients to create an account and receive tech support fr
 Special thanks to:
 - Samuel Omole of freeCodeCamp
 - Subhransu Maharana of dev.to
+- And of course, a huge thank you to all of people in my batch:
+I couldn't have done it without you.
+(And even if I could, it wouldn't have been nearly as much fun!)
 
 ## Getting Started
-```https://github.com/Revature-Tech-Support/TechSupport_frontend.git```
+1) git clone ```https://github.com/Revature-Tech-Support/TechSupport_frontend.git```
+2) cd into folder of directory
+3) install nodeJS: https://nodejs.org/en/
+4) type in ```npm init``` in the command line, then follow prompts (alternatively, you can use ```npm init --y``` to automatically flag 'yes' to all the prompts)
+5) ```npm i``` 
+6) ```npm run``` (this should open the react app in your browser of choice)
+* Note: On arch linux, nodeJS is a dependency of npm so if you are using this operating system, run ```sudo pacman -S npm``` instead
