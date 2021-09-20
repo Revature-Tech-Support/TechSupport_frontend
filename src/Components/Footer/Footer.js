@@ -8,6 +8,6 @@ const Footer = () => {
       </div>
     </nav>
   );
-}
+};
 
 export default Footer;

@@ -10,7 +10,7 @@ const Home = () => {
       <Jumbotron />
       <Footer />
     </>
-  )
-}
+  );
+};
 
 export default Home;

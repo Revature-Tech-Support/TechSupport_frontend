@@ -3,39 +3,18 @@ import Navbar from '../../Components/Navbar';
 import Footer from '../../Components/Footer';
 
 const History = () => {
-  // const displayTranscripts = () => {
-  //   const transcripts = JSON.parse(window.localStorage.getItem('transcripts'));
-  //   console.log(transcripts);
-  //   return transcripts ? (
-  //   transcripts.map(transcripts => {
-  //     return (
-  //       <div className='transcripts' key={transcripts.id}>
-  //         <h3>{transcripts.name}</h3>
-  //       </div>
-  //       );
-  //     })
-  //   ) : (
-  //     <h3>No transcripts yet</h3>
-  //   );
-  // };
-
-  const displayData = () => {
-    const data = JSON.parse(window.localStorage.getItem('transcripts'));
-    console.log(data);
-    return data
-      ? (
-          data.map(data => {
-            return (
-              <div className='data' key={data.id}>
-                <h3>{data.name}</h3>
-              </div>
-            );
-          })
-        )
-      :
+  const displayTranscripts = () => {
+    const transcripts = JSON.parse(window.localStorage.getItem('transcripts'));
+    console.log(transcripts);
+    return transcripts
+      ? transcripts.map(transcripts =>
         (
-          <h3>No data yet</h3>
-        );
+          <div className='transcripts' key={transcripts.id}>
+            <h3>{transcripts.name}</h3>
+          </div>
+        )
+      )
+      : <h3>No transcripts yet</h3>;
   };
 
   return (
@@ -49,8 +28,7 @@ const History = () => {
       </div>
 
       <div className='container'>
-        {/* {displayTranscripts()} */}
-        {displayData()}
+        {displayTranscripts()}
       </div>
       <Footer />
     </>
