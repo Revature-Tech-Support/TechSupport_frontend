@@ -16,8 +16,10 @@ const Navbar = () => {
     return (
       <>
         <nav className='navbar navbar-expand-lg navbar-light bg-secondary'>
-          <div className='container-fluid'>
-            <a className='navbar-brand' href='www.revature.com'>Revature</a>
+          <div className='container'>
+            <a className='navbar-brand' href='www.revature.com'> <img 
+              src='./resources/imgs/logo.png'
+              alt='logo'></img></a>
             <div className='navbar-nav'>
               <a className='nav-link' href='/'>Home</a>
               <a className='nav-link' href='/login'>Login/Register</a>
@@ -29,9 +31,12 @@ const Navbar = () => {
   } else if (user == 'agent') {
     return (
       <>
-        <nav className='navbar navbar-expand-lg navbar-light bg-secondary'>
-          <div className='container-fluid'>
-            <a className='navbar-brand' href='www.revature.com'>Revature</a>
+        <nav className='navbar navbar-expand-lg navbar-light bg-secondary main-navbar'>
+          <div className='container'>
+            <a className='navbar-brand' href='www.revature.com'>
+              <img 
+              src='./resources/imgs/logo.png'
+              alt='logo'></img></a>
             <div className='navbar-nav'>
               <a className='nav-link' href='/login' onClick={event => signOut(event)}>Sign Out</a>
               <a className='nav-link' href='/chat'>Chat</a>
@@ -47,7 +52,9 @@ const Navbar = () => {
       <>
         <nav className='navbar navbar-expand-lg navbar-light bg-secondary'>
           <div className='container-fluid'>
-            <a className='navbar-brand' href='www.revature.com'>Revature</a>
+            <a className='navbar-brand' href='www.revature.com'> <img 
+              src='./resources/imgs/logo.png'
+              alt='logo'></img></a>
             <div className='navbar-nav'>
               <a className='nav-link' href='/login' onClick={event => signOut(event)}>Sign Out</a>
               <a className='nav-link' href='/createTicket'>Create Ticket</a>

@@ -71,11 +71,22 @@
 }
 
 .btn {
-  background: #304d6d;
+  /* background: #304d6d; */
   cursor: pointer;
-  color: #fff;
+  /* color: #fff; */
   border-radius: 7.5px;
   padding: 12px 16px;
+  color: #3498DB;
+  border-color: #3498DB;
+}
+
+.btn:hover,
+.btn:active,
+.btn:focus,
+.btn::selection
+{
+    background: #3498DB;
+    border-color: #3498DB;
 }
 
 /*Responsive Section*/

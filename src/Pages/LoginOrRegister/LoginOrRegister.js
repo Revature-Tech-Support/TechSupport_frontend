@@ -79,11 +79,11 @@ const LoginOrRegister = () => {
     <>
     <Navbar />
     <Jumbotron />
-    <form id='loginForm'>
-      <div className='row'>
-          <h3 id='alertDiv'>To begin, log in or register below!</h3>
-          <div className='col-sm-3 offset-md-3'>
-          <label htmlFor='registerName' className='form-label'>Register here</label>
+    <form id='loginForm' className='form'>
+      <div className='row justify-content-center'>
+          <h3 id='alertDiv' className='pb-5 alert'>Get started!</h3>
+          <div className='col-sm-3 input-form'>
+          {/* <label htmlFor='registerName' className='form-label'>Register here</label> */}
           <input 
             className='form-control' 
             type='text' 
@@ -106,14 +106,14 @@ const LoginOrRegister = () => {
           <br />
           <button 
             type='button' 
-            className='btn btn-primary'
+            className='btn btn-outline-primary'
             onClick={event => registerState.handleRegister(event)}
           >
             Register
           </button>
         </div>
-          <div className='col-sm-3'>
-          <label htmlFor='loginName' className='form-label'>Log in here</label>
+          <div className='col-sm-3 input-form'>
+          {/* <label htmlFor='loginName' className='form-label'>Log in here</label> */}
           <input 
             className='form-control' 
             type='text' 
@@ -136,7 +136,7 @@ const LoginOrRegister = () => {
           <br />
           <button 
             type='button' 
-            className='btn btn-info'
+            className='btn btn-outline-primary'
             onClick={event => loginState.handleLogin(event)}
           >
             Log In

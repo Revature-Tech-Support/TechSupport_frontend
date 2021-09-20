@@ -1,29 +1,120 @@
+/* Import for Google fonts: Lato, Open Sans, Be pro */
+
+@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro&family=Lato:wght@100;300;400;900&family=Open+Sans:wght@300;400;700&display=swap");
 body {
+  margin: 0;
+  /* font-family: 'Lato', sans-serif; */
+  font-family: "Be Vietnam Pro", sans-serif;
   text-align: center;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Open Sans", sans-serif;
+}
+
+.main-navbar {
+  box-shadow: 6px 6px 45px #ff6000;
+  background-color: #ffffff !important;
+}
+
+.navbar-brand > img {
+  width: 8em;
 }
 
 .jumbotron {
   background-color: rgb(247, 119, 0);
+  background-image: linear-gradient(315deg, #ff6000 0%, #ec9f05 74%);
+  background-size: 400% 400%;
+  -webkit-animation: Gradient 15s ease infinite;
+  -moz-animation: Gradient 15s ease infinite;
+  animation: Gradient 15s ease infinite;
+  padding-top: 2em;
+  color: #ffffff;
+}
+
+.home-jt {
+  padding: 3em 0em;
+}
+
+.display-4 {
+  font-weight: 600;
+}
+
+.lead {
+  font-size: 1.75rem;
+}
+
+@-webkit-keyframes Gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@-moz-keyframes Gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes Gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .nav-link {
-  color: white !important;
+  color: #474c55 !important;
   padding: 10px !important;
+}
+
+.form {
+  padding: 6em 3em;
+  margin-top: -2em;
+}
+
+.input-form {
+  margin: 0 3em;
 }
 
 .ticketContainer {
   width: 50%;
 }
 
-.card{
+.card {
   margin: auto;
 }
 
-.sheet{
+.sheet {
   border: 2px solid black;
   box-shadow: 5px 10px gray;
 }
 
-.transcripts{
+.transcripts {
   margin-left: 100px;
+}
+
+.alert {
+  color: #f36f2c;
 }
