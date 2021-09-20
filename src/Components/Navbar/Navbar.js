@@ -36,7 +36,6 @@ const Navbar = () => {
               <a className='nav-link' href='/login' onClick={event => signOut(event)}>Sign Out</a>
               <a className='nav-link' href='/chat'>Chat</a>
               <a className='nav-link' href='/queue'>Queue</a>
-              <a className='nav-link' href='/history'>History</a>
             </div>
           </div>
         </nav>
