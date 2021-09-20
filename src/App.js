@@ -24,26 +24,26 @@ const App = () => {
         </Switch>
       </Router>
 
-  //     <>
-  //       <Router>
-  //         <Switch>
-  //           <Redirect exact from='/' to='/login' />
-  //         </Switch>
-  //       </Router>
-  //     </>
-  //   );
-  // } else {
-  //   return (
-  //     <>
-  //       <Router>
-  //         <Switch>
-  //           <Route exactpath='/' component={Home} />
-  //           <Route path='/login' component={LoginOrRegister} />
-  //           <PrivateRoute path='/chat' component={Chat} />
-  //           <PrivateRoute path='/createTicket' component={Ticket} />
-  //         </Switch>
-  //       </Router>
-  //     </>
+    //     <>
+    //       <Router>
+    //         <Switch>
+    //           <Redirect exact from='/' to='/login' />
+    //         </Switch>
+    //       </Router>
+    //     </>
+    //   );
+    // } else {
+    //   return (
+    //     <>
+    //       <Router>
+    //         <Switch>
+    //           <Route exactpath='/' component={Home} />
+    //           <Route path='/login' component={LoginOrRegister} />
+    //           <PrivateRoute path='/chat' component={Chat} />
+    //           <PrivateRoute path='/createTicket' component={Ticket} />
+    //         </Switch>
+    //       </Router>
+    //     </>
     );
   }
 };
