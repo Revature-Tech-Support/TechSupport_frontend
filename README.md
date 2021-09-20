@@ -30,6 +30,7 @@ Create an interface for clients to create an account and receive tech support fr
 - React 
 - Axios
 
+
 ## Acknowledgements
 Special thanks to:
 - Samuel Omole of freeCodeCamp
@@ -37,6 +38,7 @@ Special thanks to:
 - And of course, a huge thank you to all of people in my batch:
 I couldn't have done it without you.
 (And even if I could, it wouldn't have been nearly as much fun!)
+
 
 ## Getting Started
 1) git clone ```https://github.com/Revature-Tech-Support/TechSupport_frontend.git```

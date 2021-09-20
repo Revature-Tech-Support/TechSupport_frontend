@@ -9,11 +9,11 @@ const LoginOrRegister = () => {
     const [loginState, setLoginState] = useState({
       users: [],
       isSignedIn: false
-    })
+    });
 
     loginState.handleInputChange = event => {
       setLoginState({ ...loginState, [event.target.name]: event.target.value })
-    }
+    };
 
     loginState.handleLogin = event => {
       event.preventDefault();
@@ -32,7 +32,7 @@ const LoginOrRegister = () => {
           }
         })
         .catch(err => console.error(err))
-    }
+    };
 
     if (localStorage.getItem('user')) {
       axios.get('/users/authorize', {
@@ -43,18 +43,18 @@ const LoginOrRegister = () => {
           window.location = '/createTicket'
         })
         .catch(err => console.error(err))
-      }
+      };
 
   const [registerState, setRegisterState] = useState({
     users: '',
     handleRegister: '',
     handleInputChange: ''
-  })
+  });
 
   registerState.handleInputChange = event => {
     setRegisterState({ ...registerState, [event.target.name]: event.target.value })
     console.log(registerState);
-  }
+  };
 
   registerState.handleRegister = event => {
     event.preventDefault()
@@ -73,7 +73,7 @@ const LoginOrRegister = () => {
         }
       })
       .catch(err => console.error(err))
-    }
+  };
       
   return (
     <>

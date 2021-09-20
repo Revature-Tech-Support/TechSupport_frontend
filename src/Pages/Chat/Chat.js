@@ -53,7 +53,7 @@ const Chat = ({ user }) => {
       window.open('/history', '_blank')
     })
     .catch(err => console.error(err))
-  }
+  };
 
   useEffect(() => {
     webSocket.current = new window.WebSocket('ws://localhost:8080/ws');
@@ -120,7 +120,6 @@ const Chat = ({ user }) => {
             ))}
             <div
               ref={scrollRef}
-              // className='scroll'
               style={{ float: 'left', clear: 'both', paddingTop: '4rem' }}
             >
               {}

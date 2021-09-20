@@ -82,7 +82,6 @@ const Ticket = () => {
               className='form-control'
               ref={fileUpload}
               type='file'
-              // onChange={event => handleInputChange(event)}
               multiple
             />
           </div>

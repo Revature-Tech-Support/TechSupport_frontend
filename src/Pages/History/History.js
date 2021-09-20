@@ -18,7 +18,7 @@ const History = () => {
     ) : (
       <h3>No transcripts yet</h3>
     );
-  }
+  };
 
   return (
     <>
