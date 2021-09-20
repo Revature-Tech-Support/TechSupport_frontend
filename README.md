@@ -7,8 +7,7 @@ The front end for a tech support platform developed for Revature
 
 
 ## Goal:
-[insert]
-
+An interface to interact with the apllication's features.
 
 ## User Stories:
 ### User
