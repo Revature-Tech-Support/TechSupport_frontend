@@ -10,7 +10,7 @@ import History from './Pages/History';
 // import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 
 const App = () => {
-  const [user, setUser] = useState(window.localStorage.getItem('username'));
+  const [user] = useState(window.localStorage.getItem('username'));
 
   return (
     <>
