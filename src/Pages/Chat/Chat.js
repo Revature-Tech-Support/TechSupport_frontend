@@ -36,23 +36,23 @@ const Chat = ({ user }) => {
     } else {
       // this is for tech support and redirects them to the queue
       window.confirm('Issue has been marked as resolved.');
-      localStorage.removeItem('transcripts');
+      window.localStorage.removeItem('transcripts');
       window.location = '/queue';
     }
   };
 
   const getTranscripts = event => {
     event.preventDefault();
-    axios.get('https://jsonplaceholder.typicode.com/users') 
+    axios.get('https://jsonplaceholder.typicode.com/users')
     // axios.get(`/transcripts/${userId}`, {
     //   transcripts: transcripts
     // })
-    .then(({ data }) => {
-      console.log(data)
-      localStorage.setItem('transcripts', JSON.stringify(data))
-      window.open('/history', '_blank')
-    })
-    .catch(err => console.error(err))
+      .then(({ data }) => {
+        console.log(data);
+        window.localStorage.setItem('transcripts', JSON.stringify(data));
+        window.open('/history', '_blank');
+      })
+      .catch(err => console.error(err));
   };
 
   useEffect(() => {
