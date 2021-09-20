@@ -32,9 +32,8 @@ const History = () => {
             );
           })
         )
-      :
-        (
-          <h3>No data yet</h3>
+      : (
+        <h3>No data yet</h3>
         );
   };
 
