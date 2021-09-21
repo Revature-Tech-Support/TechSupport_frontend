@@ -6,7 +6,7 @@ const Message = ({ message }) => {
         <div className='msg'>
           {/* <p>{data.sender.username}</p> */}
           {/* <div className='msgText'> {data.data.text}</div> */}
-          <p>{message.message}</p>
+          <p><span className='username'>{message.username}</span><br /><span>{message.message}</span></p>
         </div>
       </li>
     </div>
