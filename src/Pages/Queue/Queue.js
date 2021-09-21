@@ -6,7 +6,6 @@ import axios from 'axios';
 const Queue = ({ ticketId }) => {
   const displayIssue = issueId => {
     axios.get(`/issues/${issueId}`)
-      .then
       .then(({ data }) => {
         console.log(data);
         return (

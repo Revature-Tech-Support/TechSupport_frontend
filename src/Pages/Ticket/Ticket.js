@@ -8,7 +8,7 @@ const Ticket = () => {
   // states
   const [subject, setSubject] = useState('');
   const [issue, setIssue] = useState('');
-  const [ticket, setTicket] = useState([]);
+  const [ticket] = useState([]);
 
   const fileUpload = useRef();
 
