@@ -23,13 +23,10 @@ An interface to interact with the apllication's features.
 
 ## Technology:
 - HTML
-- Javascript
+- JavaScript
 - CSS
-- BootStrap
-- React JS
-- Java
-- Springboot
-- Spring Cloud
+- Bootstrap
+- React 
 
 
 ## Getting Started
