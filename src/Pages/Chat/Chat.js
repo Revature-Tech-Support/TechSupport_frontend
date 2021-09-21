@@ -23,22 +23,24 @@ const Chat = () => {
   const sendMessage = event => {
     event.preventDefault();
     if (input !== '') {
-      webSocket.current.send(JSON.stringify({ username: user, message: input, timestamp: Date.now() }));
+      webSocket.current.send(JSON.stringify({ username: user.username, message: input, timestamp: Date.now() }));
       setInput('');
     }
   };
 
   const handleCloseChat = event => {
     if (user === 'client') { // this comparison will need to be updated
-      window.confirm('You have left the chat and will now be redirected to the login/register page.');
-      // clears client from localStorage, thereby logging them out
-      window.localStorage.clear();
-      window.location = '/';
+      if (window.confirm('You have left the chat and will now be redirected to the login/register page.')) {
+        // clears client from localStorage, thereby logging them out
+        window.localStorage.clear();
+        window.location = '/';
+      }
     } else {
       // this is for tech support and redirects them to the queue
-      window.confirm('Issue has been marked as resolved.');
-      window.localStorage.removeItem('transcripts');
-      window.location = '/queue';
+      if (window.confirm('Issue has been marked as resolved.')) {
+        window.localStorage.removeItem('transcripts');
+        window.location = '/queue';
+      }
     }
   };
 
