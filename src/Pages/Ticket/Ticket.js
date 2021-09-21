@@ -50,7 +50,7 @@ const Ticket = () => {
       <Jumbotron />
       <h2>Create a Ticket</h2>
       <div className='container ticketContainer'>
-        <form>
+        <form className='ticketForm'>
           <div className='row justify-content-center'>
             <label htmlFor='subject' className='form-label'>Subject</label>
             <div className='col-3 p-3'>

@@ -11,18 +11,18 @@ import History from './Pages/History';
 
 const App = () => {
   const [user] = useState(window.localStorage.getItem('username'));
-  if (user == null) {
-    return (
-      <Router>
-        <Switch>
-          <Redirect exact from='/' to='/login' />
-          <Route path='/login' component={LoginOrRegister} />
-          <Route path='/chat' component={() => <Chat user={user} />} />
-          <Route path='/createTicket' component={Ticket} />
-          <Route path='/queue' component={Queue} />
-          <Route path='/history' component={History} />
-        </Switch>
-      </Router>
+
+  return (
+    <Router>
+      <Switch>
+        <Redirect exact from='/' to='/login' />
+        <Route path='/login' component={LoginOrRegister} />
+        <Route path='/chat' component={() => <Chat user={user} />} />
+        <Route path='/createTicket' component={Ticket} />
+        <Route path='/queue' component={Queue} />
+        <Route path='/history' component={History} />
+      </Switch>
+    </Router>
     // user == null ? (
     // <>
     //   <Router>
@@ -45,28 +45,27 @@ const App = () => {
     // )
     // );
 
-    //     <>
-    //       <Router>
-    //         <Switch>
-    //           <Redirect exact from='/' to='/login' />
-    //         </Switch>
-    //       </Router>
-    //     </>
-    //   );
-    // } else {
-    //   return (
-    //     <>
-    //       <Router>
-    //         <Switch>
-    //           <Route exactpath='/' component={Home} />
-    //           <Route path='/login' component={LoginOrRegister} />
-    //           <PrivateRoute path='/chat' component={Chat} />
-    //           <PrivateRoute path='/createTicket' component={Ticket} />
-    //         </Switch>
-    //       </Router>
-    //     </>
-    );
-  }
+  //     <>
+  //       <Router>
+  //         <Switch>
+  //           <Redirect exact from='/' to='/login' />
+  //         </Switch>
+  //       </Router>
+  //     </>
+  //   );
+  // } else {
+  //   return (
+  //     <>
+  //       <Router>
+  //         <Switch>
+  //           <Route exactpath='/' component={Home} />
+  //           <Route path='/login' component={LoginOrRegister} />
+  //           <PrivateRoute path='/chat' component={Chat} />
+  //           <PrivateRoute path='/createTicket' component={Ticket} />
+  //         </Switch>
+  //       </Router>
+  //     </>
+  );
 };
 
 export default App;
