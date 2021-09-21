@@ -104,20 +104,6 @@ const Chat = () => {
 
         <ul className='chat' id='chatList'>
           <div className='chatMessages'>
-            <div className='col'>
-              <li className='sender'>
-                <div className='msg'>
-                  <p>SENDER</p>
-                </div>
-              </li>
-            </div>
-            <div className='col'>
-              <li className='receiver'>
-                <div className='msg'>
-                  <p>RECEIVER</p>
-                </div>
-              </li>
-            </div>
             {messages.map(message => (
               <Message key={message.id} message={message} />
             ))}
