@@ -1,11 +1,26 @@
 import React from 'react';
 import Navbar from '../../Components/Navbar';
 import Footer from '../../Components/Footer';
+import axios from 'axios';
 
 const Queue = ({ ticketId }) => {
-  // const [userId, setUserId] = useState(window.localStorage.getItem('userId'));
+  const displayIssue = issueId => {
+    axios.get(`/issues/${issueId}`)
+      .then
+      .then(({ data }) => {
+        console.log(data);
+        return (
+          <div className='issue' key={data.issueId}>
+            <h3>{data.username}</h3>
+            <h3>{data.issueId}</h3>
+            <h3>{data.issueTitle}</h3>
+          </div>
+        );
+      })
+      .catch(err => console.error(err));
+  };
 
-  const startChat = event => {
+  const openChat = issueId => {
     if (window.confirm('This will open a chat with the corresponding client. Proceed?')) {
       window.location = '/chat';
     }
@@ -21,9 +36,12 @@ const Queue = ({ ticketId }) => {
         <hr className='my-4' />
       </div>
       <div className='container'>
+        <div className='issueDisplay'>
+          {displayIssue()}
+        </div>
         <button
           className='btn btn-success'
-          onClick={event => startChat(event)}
+          onClick={event => openChat(event)}
         >Start chat with next client
         </button>
       </div>

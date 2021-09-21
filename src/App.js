@@ -11,9 +11,8 @@ import History from './Pages/History';
 
 const App = () => {
   const [user] = useState(window.localStorage.getItem('username'));
-
-  return (
-    <>
+  if (user == null) {
+    return (
       <Router>
         <Switch>
           <Redirect exact from='/' to='/login' />
@@ -24,7 +23,6 @@ const App = () => {
           <Route path='/history' component={History} />
         </Switch>
       </Router>
-    </>
     // user == null ? (
     // <>
     //   <Router>
@@ -46,6 +44,29 @@ const App = () => {
     //   </>
     // )
   );
+
+    //     <>
+    //       <Router>
+    //         <Switch>
+    //           <Redirect exact from='/' to='/login' />
+    //         </Switch>
+    //       </Router>
+    //     </>
+    //   );
+    // } else {
+    //   return (
+    //     <>
+    //       <Router>
+    //         <Switch>
+    //           <Route exactpath='/' component={Home} />
+    //           <Route path='/login' component={LoginOrRegister} />
+    //           <PrivateRoute path='/chat' component={Chat} />
+    //           <PrivateRoute path='/createTicket' component={Ticket} />
+    //         </Switch>
+    //       </Router>
+    //     </>
+    );
+  }
 };
 
 export default App;
