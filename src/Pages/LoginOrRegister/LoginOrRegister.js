@@ -5,20 +5,32 @@ import Jumbotron from '../../Components/Jumbotron';
 import Footer from '../../Components/Footer';
 
 const LoginOrRegister = () => {
-  const [loginState, setLoginState] = useState({
-    users: [],
-    isSignedIn: false
-  });
+  const [registerUsername, setRegisterUsername] = useState('');
+  const [registerPassword, setRegisterPassword] = useState('');
+  const [loginUsername, setLoginUsername] = useState('');
+  const [loginPassword, setLoginPassword] = useState('');
 
-  loginState.handleInputChange = event => {
-    setLoginState({ ...loginState, [event.target.name]: event.target.value });
+  const handleRegisterUsernameChange = event => {
+    setRegisterUsername(event.target.value);
   };
 
-  loginState.handleLogin = event => {
+  const handleRegisterPasswordChange = event => {
+    setRegisterPassword(event.target.value);
+  };
+
+  const handleLoginUsernameChange = event => {
+    setLoginUsername(event.target.value);
+  };
+
+  const handleLoginPasswordChange = event => {
+    setLoginPassword(event.target.value);
+  };
+
+  const handleLogin = event => {
     event.preventDefault();
-    axios.post('/users/login', {
-      username: loginState.username,
-      password: loginState.password
+    axios.post('/user/login', {
+      username: loginUsername,
+      password: loginPassword
     })
       .then(({ data }) => {
         console.log(data);
@@ -26,40 +38,17 @@ const LoginOrRegister = () => {
           window.localStorage.setItem('user', data);
           window.location = '/createTicket';
         } else {
-          window.alert('An error occurred during login. Please try again.');
-          window.location = '/';
+          window.alert('An error occurred during login. Please try again.'); // user already exists
         }
       })
       .catch(err => console.error(err));
   };
 
-  if (window.localStorage.getItem('user')) {
-    axios.get('/users/authorize', {
-      username: loginState.username
-    })
-      .then(({ data }) => {
-        console.log(data);
-        window.location = '/createTicket';
-      })
-      .catch(err => console.error(err));
-  }
-
-  const [registerState, setRegisterState] = useState({
-    users: '',
-    handleRegister: '',
-    handleInputChange: ''
-  });
-
-  registerState.handleInputChange = event => {
-    setRegisterState({ ...registerState, [event.target.name]: event.target.value });
-    console.log(registerState);
-  };
-
-  registerState.handleRegister = event => {
+  const handleRegister = event => {
     event.preventDefault();
-    axios.post('/users/register', {
-      username: registerState.username,
-      password: registerState.password
+    axios.post('/user', {
+      username: registerUsername,
+      password: registerPassword
     })
       .then(({ data }) => {
         if (data) {
@@ -67,12 +56,15 @@ const LoginOrRegister = () => {
           window.localStorage.setItem('user', data);
           window.location = '/createTicket';
         } else {
-          window.alert('An error occurred during registration. Please try again.');
-          window.location = '/';
+          window.alert('An error occurred during registration. Please try again.'); // password is wrong
         }
       })
       .catch(err => console.error(err));
   };
+
+  if (window.localStorage.getItem('user')) {
+    window.location = '/createTicket';
+  }
 
   return (
     <>
@@ -90,7 +82,8 @@ const LoginOrRegister = () => {
               id='registerName'
               name='registerName'
               placeholder='Username'
-              onChange={event => loginState.handleInputChange(event)}
+              input={registerUsername}
+              onChange={event => handleRegisterUsernameChange(event)}
             />
             <br />
             <input
@@ -100,13 +93,14 @@ const LoginOrRegister = () => {
               id='registerPassword'
               name='registerPassword'
               placeholder='Password'
-              onChange={event => loginState.handleInputChange(event)}
+              input={registerPassword}
+              onChange={event => handleRegisterPasswordChange(event)}
             />
             <br />
             <button
               type='button'
               className='btn btn-primary'
-              onClick={event => registerState.handleRegister(event)}
+              onClick={event => handleRegister(event)}
             >
               Register
             </button>
@@ -120,7 +114,8 @@ const LoginOrRegister = () => {
               id='loginName'
               name='loginName'
               placeholder='Username'
-              onChange={event => loginState.handleInputChange(event)}
+              input={loginUsername}
+              onChange={event => handleLoginUsernameChange(event)}
             />
             <br />
             <input
@@ -130,13 +125,14 @@ const LoginOrRegister = () => {
               id='loginPassword'
               name='loginPassword'
               placeholder='Password'
-              onChange={event => loginState.handleInputChange(event)}
+              input={loginPassword}
+              onChange={event => handleLoginPasswordChange(event)}
             />
             <br />
             <button
               type='button'
               className='btn btn-info'
-              onClick={event => loginState.handleLogin(event)}
+              onClick={event => handleLogin(event)}
             >
               Log In
             </button>
