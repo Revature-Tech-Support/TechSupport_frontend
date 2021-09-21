@@ -32,7 +32,6 @@ const Ticket = () => {
       })
         .then(({ data }) => {
           if (data) {
-            console.log(data);
             window.alert(`Your ticket with ID: ${ticket.id} has been submitted!`);
             setSubject('');
             setIssue('');

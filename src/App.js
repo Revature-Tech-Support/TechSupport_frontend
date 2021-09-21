@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
 import { Route, Redirect, Switch, BrowserRouter as Router } from 'react-router-dom';
 // import Home from './Pages/Home';
@@ -10,17 +10,15 @@ import History from './Pages/History';
 // import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 
 const App = () => {
-  const [user] = useState(window.localStorage.getItem('username'));
-
   return (
     <Router>
       <Switch>
         <Redirect exact from='/' to='/login' />
-        <Route path='/login' component={LoginOrRegister} />
-        <Route path='/chat' component={() => <Chat user={user} />} />
-        <Route path='/createTicket' component={Ticket} />
-        <Route path='/queue' component={Queue} />
-        <Route path='/history' component={History} />
+        <Route path='/login' component={() => <LoginOrRegister />} />
+        <Route path='/chat' component={() => <Chat />} />
+        <Route path='/createTicket' component={() => <Ticket />} />
+        <Route path='/queue' component={() => <Queue />} />
+        <Route path='/history' component={() => <History />} />
       </Switch>
     </Router>
     // user == null ? (

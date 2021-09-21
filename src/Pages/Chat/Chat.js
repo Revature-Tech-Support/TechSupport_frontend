@@ -6,9 +6,10 @@ import Footer from '../../Components/Footer';
 import './Chat.css';
 import axios from 'axios';
 
-const Chat = ({ user }) => {
+const Chat = () => {
   const scrollRef = useRef();
   const webSocket = useRef();
+  const user = JSON.parse(window.localStorage.getItem('user'));
 
   // states
   const [input, setInput] = useState('');

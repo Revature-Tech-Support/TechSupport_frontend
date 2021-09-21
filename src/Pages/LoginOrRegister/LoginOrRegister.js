@@ -35,8 +35,12 @@ const LoginOrRegister = () => {
       .then(({ data }) => {
         console.log(data);
         if (data) {
-          window.localStorage.setItem('user', data);
-          window.location = '/createTicket';
+          window.localStorage.setItem('user', JSON.stringify(data));
+          if (data.techAgent) {
+            window.location = '/queue';
+          } else {
+            window.location = '/createTicket';
+          }
         } else {
           window.alert('An error occurred during login. Please try again.'); // user already exists
         }
@@ -63,7 +67,11 @@ const LoginOrRegister = () => {
   };
 
   if (window.localStorage.getItem('user')) {
-    window.location = '/createTicket';
+    if (window.localStorage.getItem('user').techAgent) {
+      window.location = '/queue';
+    } else {
+      window.location = '/createTicket';
+    }
   }
 
   return (
