@@ -3,7 +3,7 @@ import Navbar from '../../Components/Navbar';
 import Footer from '../../Components/Footer';
 import axios from 'axios';
 
-const Queue = ({ ticketId }) => {
+const Queue = () => {
   const displayIssue = issueId => {
     axios.get(`/issues/${issueId}`)
       .then(({ data }) => {
