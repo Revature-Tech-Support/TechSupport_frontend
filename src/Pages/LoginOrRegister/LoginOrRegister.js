@@ -67,7 +67,7 @@ const LoginOrRegister = () => {
   };
 
   if (window.localStorage.getItem('user')) {
-    if (window.localStorage.getItem('user').techAgent) {
+    if (JSON.parse(window.localStorage.getItem('user')).techAgent) {
       window.location = '/queue';
     } else {
       window.location = '/createTicket';
