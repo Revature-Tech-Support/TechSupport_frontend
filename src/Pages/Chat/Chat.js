@@ -4,9 +4,10 @@ import "./Chat.css";
 import axios from "axios";
 import Layout from "../../Components/Layout";
 
-const Chat = ({ user }) => {
+const Chat = () => {
   const scrollRef = useRef();
   const webSocket = useRef();
+  const user = JSON.parse(window.localStorage.getItem('user'));
 
   // states
   const [input, setInput] = useState("");
@@ -19,6 +20,7 @@ const Chat = ({ user }) => {
 
   const sendMessage = (event) => {
     event.preventDefault();
+<<<<<<< HEAD
     if (input !== "") {
       webSocket.current.send(
         JSON.stringify({
@@ -45,11 +47,33 @@ const Chat = ({ user }) => {
       window.confirm("Issue has been marked as resolved.");
       localStorage.removeItem("transcripts");
       window.location = "/queue";
+=======
+    if (input !== '') {
+      webSocket.current.send(JSON.stringify({ username: user.username, message: input, timestamp: Date.now() }));
+      setInput('');
+    }
+  };
+
+  const handleCloseChat = event => {
+    if (user === 'client') { // this comparison will need to be updated
+      if (window.confirm('You have left the chat and will now be redirected to the login/register page.')) {
+        // clears client from localStorage, thereby logging them out
+        window.localStorage.clear();
+        window.location = '/';
+      }
+    } else {
+      // this is for tech support and redirects them to the queue
+      if (window.confirm('Issue has been marked as resolved.')) {
+        window.localStorage.removeItem('transcripts');
+        window.location = '/queue';
+      }
+>>>>>>> lanchi-copy
     }
   };
 
   const getTranscripts = (event) => {
     event.preventDefault();
+<<<<<<< HEAD
     axios
       .get("https://jsonplaceholder.typicode.com/users")
       // axios.get(`/transcripts/${userId}`, {
@@ -61,6 +85,18 @@ const Chat = ({ user }) => {
         window.open("/history", "_blank");
       })
       .catch((err) => console.error(err));
+=======
+    axios.get('https://jsonplaceholder.typicode.com/users')
+    // axios.get(`/transcripts/${userId}`, {
+    //   transcripts: transcripts
+    // })
+      .then(({ data }) => {
+        console.log(data);
+        window.localStorage.setItem('transcripts', JSON.stringify(data));
+        window.open('/history', '_blank');
+      })
+      .catch(err => console.error(err));
+>>>>>>> lanchi-copy
   };
 
   useEffect(() => {
@@ -115,6 +151,7 @@ const Chat = ({ user }) => {
             </div>
           </div>
 
+<<<<<<< HEAD
           <ul className="chat" id="chatList">
             <div className="chatMessages">
               <div className="col">
@@ -168,6 +205,18 @@ const Chat = ({ user }) => {
                   Transcripts
                 </button>
               </form>
+=======
+        <ul className='chat' id='chatList'>
+          <div className='chatMessages'>
+            {messages.map(message => (
+              <Message key={message.id} message={message} />
+            ))}
+            <div
+              ref={scrollRef}
+              style={{ float: 'left', clear: 'both', paddingTop: '4rem' }}
+            >
+              {}
+>>>>>>> lanchi-copy
             </div>
           </div>
         </div>

@@ -1,17 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
 import { Route, Redirect, Switch, BrowserRouter as Router } from 'react-router-dom';
-//import Home from './Pages/Home';
+// import Home from './Pages/Home';
 import LoginOrRegister from './Pages/LoginOrRegister';
 import Ticket from './Pages/Ticket';
 import Chat from './Pages/Chat/Chat';
 import ChatCopy from './Pages/Chat/ChatCopy'; // Dev purpose Delete ASAP
 import Queue from './Pages/Queue';
-//import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
+import History from './Pages/History';
+// import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 
 const App = () => {
-  const [user, setUser] = useState(window.localStorage.getItem('username'));
-
   return (
     <>
       <Router>
@@ -22,6 +21,7 @@ const App = () => {
           <Route path='/chatCopy' component={() => <ChatCopy user={user} />} />
           <Route path='/createTicket' component={Ticket} />
           <Route path='/queue' component={Queue} />
+          <Route path='/history' component={History} />
         </Switch>
       </Router> 
     </>
@@ -45,6 +45,28 @@ const App = () => {
     //     </Router>
     //   </>
     // )
+    // );
+
+  //     <>
+  //       <Router>
+  //         <Switch>
+  //           <Redirect exact from='/' to='/login' />
+  //         </Switch>
+  //       </Router>
+  //     </>
+  //   );
+  // } else {
+  //   return (
+  //     <>
+  //       <Router>
+  //         <Switch>
+  //           <Route exactpath='/' component={Home} />
+  //           <Route path='/login' component={LoginOrRegister} />
+  //           <PrivateRoute path='/chat' component={Chat} />
+  //           <PrivateRoute path='/createTicket' component={Ticket} />
+  //         </Switch>
+  //       </Router>
+  //     </>
   );
 };
 
