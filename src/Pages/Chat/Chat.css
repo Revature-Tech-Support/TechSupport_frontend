@@ -5,13 +5,7 @@
 .chatBox {
   background: #fff;
   border-radius: 10px;
-<<<<<<< HEAD
-  /* display: flex;
-  flex-direction: column; */
-  box-shadow: 3px 6px 12px #595e66;
-=======
   box-shadow: 0 3px 30px 5px black;
->>>>>>> lanchi-copy
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
@@ -64,13 +58,7 @@
   flex-direction: column;
   min-width: fit-content;
   padding: 10px;
-<<<<<<< HEAD
-  /* padding: 0 0.5rem; */
-  /* overflow-y: auto; */
-  overflow: hidden scroll;
-=======
   overflow-y: auto;
->>>>>>> lanchi-copy
 }
 
 #messageInput {

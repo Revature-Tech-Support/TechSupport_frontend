@@ -1,10 +1,5 @@
-<<<<<<< HEAD:src/Pages/History.js
 import React from 'react'; 
 import Navbar from '../Components/Navbar';
-=======
-import React from 'react';
-import Navbar from '../../Components/Navbar';
->>>>>>> lanchi-copy:src/Pages/History/History.js
 import Footer from '../../Components/Footer';
 
 const History = () => {

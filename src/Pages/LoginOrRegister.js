@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-<<<<<<< HEAD:src/Pages/LoginOrRegister.js
 import Layout from '../Components/Layout';
 const LoginOrRegister = () => {
 
@@ -8,13 +7,8 @@ const LoginOrRegister = () => {
       users: [],
       isSignedIn: false
     })
-=======
-import Navbar from '../../Components/Navbar';
-import Jumbotron from '../../Components/Jumbotron';
-import Footer from '../../Components/Footer';
 
 const isTechAgent = false;
->>>>>>> lanchi-copy:src/Pages/LoginOrRegister/LoginOrRegister.js
 
 const LoginOrRegister = () => {
   const [registerUsername, setRegisterUsername] = useState('');
@@ -92,75 +86,6 @@ const LoginOrRegister = () => {
 
   return (
     <>
-<<<<<<< HEAD:src/Pages/LoginOrRegister.js
-    <Layout>
-    <form id='loginForm' className='form'>
-      <div className='row justify-content-center'>
-          <h3 id='alertDiv' className='pb-5 alert display-4'>Get started!</h3>
-          <div className='col-sm-3 input-form'>
-          {/* <label htmlFor='registerName' className='form-label'>Register here</label> */}
-          <input 
-            className='form-control' 
-            type='text' 
-            aria-label='Register Input'
-            id='registerName'
-            name='registerName'
-            placeholder='Username'
-            onChange={event => loginState.handleInputChange(event)}
-          />
-          <br />
-          <input
-            className='form-control'
-            type='password'
-            aria-label='Register Password'
-            id='registerPassword'
-            name='registerPassword'
-            placeholder='Password'
-            onChange={event => loginState.handleInputChange(event)}
-          />
-          <br />
-          <button 
-            type='button' 
-            className='btn btn-outline-primary'
-            onClick={event => registerState.handleRegister(event)}
-          >
-            Register
-          </button>
-        </div>
-          <div className='col-sm-3 input-form'>
-          {/* <label htmlFor='loginName' className='form-label'>Log in here</label> */}
-          <input 
-            className='form-control' 
-            type='text' 
-            aria-label='Login Name'
-            id='loginName'
-            name='loginName'
-            placeholder='Username'
-            onChange={event => loginState.handleInputChange(event)}
-          />
-          <br />
-          <input
-            className='form-control'
-            type='password'
-            aria-label='Login Password'
-            id='loginPassword'
-            name='loginPassword'
-            placeholder='Password'
-            onChange={event => loginState.handleInputChange(event)}
-          />
-          <br />
-          <button 
-            type='button' 
-            className='btn btn-outline-primary'
-            onClick={event => loginState.handleLogin(event)}
-          >
-            Log In
-          </button>
-        </div>
-      </div>
-    </form>
-    </Layout>
-=======
       <Navbar />
       <Jumbotron />
       <form id='loginForm'>
@@ -233,9 +158,8 @@ const LoginOrRegister = () => {
         </div>
       </form>
       <Footer />
->>>>>>> lanchi-copy:src/Pages/LoginOrRegister/LoginOrRegister.js
     </>
   );
-};
+}};
 
 export default LoginOrRegister;
