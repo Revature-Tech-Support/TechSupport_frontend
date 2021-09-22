@@ -11,7 +11,7 @@ const Navbar = () => {
   };
 
   // const longestWaiting = issueId => {
-  //   axios.get(`/issues/${issueId}`)
+  //   axios.get('/issues/oldest')
   //     .then(({ data }) => {
   //       console.log(data);
   //     })

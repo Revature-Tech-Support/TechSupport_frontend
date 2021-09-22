@@ -5,7 +5,7 @@ import axios from 'axios';
 
 const Queue = () => {
   const displayIssue = issueId => {
-    axios.get(`/issues/${issueId}`)
+    axios.get('/issue/oldest')
       .then(({ data }) => {
         console.log(data);
         return (
