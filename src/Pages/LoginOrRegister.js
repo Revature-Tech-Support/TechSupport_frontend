@@ -55,12 +55,10 @@ const LoginOrRegister = () => {
         password: registerPassword
       })
       .then(({ data }) => {
-        if (data && data.TechAgent) {
-          console.log(data);
+        if (data && data.techAgent) {
           window.localStorage.setItem('user', JSON.stringify(data));
           window.location = '/queue';
-        } else if (data && !data.TechAgent) {
-          console.log(data);
+        } else if (data && !data.techAgent) {
           window.localStorage.setItem('user', JSON.stringify(data));
           window.location = '/createTicket';
         } else {
