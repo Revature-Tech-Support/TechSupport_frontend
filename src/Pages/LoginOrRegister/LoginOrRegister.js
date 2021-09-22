@@ -4,8 +4,6 @@ import Navbar from '../../Components/Navbar';
 import Jumbotron from '../../Components/Jumbotron';
 import Footer from '../../Components/Footer';
 
-const isTechAgent = false;
-
 const LoginOrRegister = () => {
   const [registerUsername, setRegisterUsername] = useState('');
   const [registerPassword, setRegisterPassword] = useState('');
@@ -57,13 +55,13 @@ const LoginOrRegister = () => {
       password: registerPassword
     })
       .then(({ data }) => {
-        if (data && isTechAgent) {
+        if (data && data.techAgent) {
           console.log(data);
-          window.localStorage.setItem('agent', data);
+          window.localStorage.setItem('user', data);
           window.location = '/queue';
-        } else if (data && !isTechAgent) {
+        } else if (data && !data.techAgent) {
           console.log(data);
-          window.localStorage.setItem('agent', data);
+          window.localStorage.setItem('user', data);
           window.location = '/createTicket';
         } else {
           window.alert('An error occurred during registration. Please try again.'); // password is wrong
