@@ -81,84 +81,83 @@ const LoginOrRegister = () => {
   }
 
   return (
-    <>
-      <Layout
-        childClass='pt-5 pb-5'>
-        <form id='loginForm' className='pb-5'>
-          <div className='row pb-5'>
-            <h3 id='alertDiv' className='display-4 alert pt-5'>Get Started!</h3>
-            <div className='col-sm-3 offset-md-3'>
-              {/* <label htmlFor='registerName' className='form-label'>
-                Register here
-              </label> */}
-              <input
-                className='form-control'
-                type='text'
-                aria-label='Register Input'
-                id='registerName'
-                name='registerName'
-                placeholder='Username'
-                input={registerUsername}
-                onChange={(event) => handleRegisterUsernameChange(event)}
-              />
-              <br />
-              <input
-                className='form-control'
-                type='password'
-                aria-label='Register Password'
-                id='registerPassword'
-                name='registerPassword'
-                placeholder='Password'
-                input={registerPassword}
-                onChange={(event) => handleRegisterPasswordChange(event)}
-              />
-              <br />
-              <button
-                type='button'
-                className='btn btn-outline-primary'
-                onClick={(event) => handleRegister(event)}
-              >
-                Register
-              </button>
-            </div>
-            <div className='col-sm-3'>
-              {/* <label htmlFor='loginName' className='form-label'>
-                Log in here
-              </label> */}
-              <input
-                className='form-control'
-                type='text'
-                aria-label='Login Name'
-                id='loginName'
-                name='loginName'
-                placeholder='Username'
-                input={loginUsername}
-                onChange={(event) => handleLoginUsernameChange(event)}
-              />
-              <br />
-              <input
-                className='form-control'
-                type='password'
-                aria-label='Login Password'
-                id='loginPassword'
-                name='loginPassword'
-                placeholder='Password'
-                input={loginPassword}
-                onChange={(event) => handleLoginPasswordChange(event)}
-              />
-              <br />
-              <button
-                type='button'
-                className='btn btn-outline-primary'
-                onClick={(event) => handleLogin(event)}
-              >
-                Log In
-              </button>
-            </div>
+    <Layout
+      childClass='pt-5 pb-5'
+    >
+      <form id='loginForm' className='pb-5'>
+        <div className='row pb-5'>
+          <h3 id='alertDiv' className='display-4 alert pt-5'>Get Started!</h3>
+          <div className='col-sm-3 offset-md-3'>
+            {/* <label htmlFor='registerName' className='form-label'>
+              Register here
+            </label> */}
+            <input
+              className='form-control'
+              type='text'
+              aria-label='Register Input'
+              id='registerName'
+              name='registerName'
+              placeholder='Username'
+              input={registerUsername}
+              onChange={(event) => handleRegisterUsernameChange(event)}
+            />
+            <br />
+            <input
+              className='form-control'
+              type='password'
+              aria-label='Register Password'
+              id='registerPassword'
+              name='registerPassword'
+              placeholder='Password'
+              input={registerPassword}
+              onChange={(event) => handleRegisterPasswordChange(event)}
+            />
+            <br />
+            <button
+              type='button'
+              className='btn btn-outline-primary'
+              onClick={(event) => handleRegister(event)}
+            >
+              Register
+            </button>
           </div>
-        </form>
-      </Layout>
-    </>
+          <div className='col-sm-3'>
+            {/* <label htmlFor='loginName' className='form-label'>
+              Log in here
+            </label> */}
+            <input
+              className='form-control'
+              type='text'
+              aria-label='Login Name'
+              id='loginName'
+              name='loginName'
+              placeholder='Username'
+              input={loginUsername}
+              onChange={(event) => handleLoginUsernameChange(event)}
+            />
+            <br />
+            <input
+              className='form-control'
+              type='password'
+              aria-label='Login Password'
+              id='loginPassword'
+              name='loginPassword'
+              placeholder='Password'
+              input={loginPassword}
+              onChange={(event) => handleLoginPasswordChange(event)}
+            />
+            <br />
+            <button
+              type='button'
+              className='btn btn-outline-primary'
+              onClick={(event) => handleLogin(event)}
+            >
+              Log In
+            </button>
+          </div>
+        </div>
+      </form>
+    </Layout>
   );
 };
 
