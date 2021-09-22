@@ -7,17 +7,10 @@
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
     "axios": "^0.21.4",
-    "chat-ui-react": "^0.2.14",
-    "query-string": "^4.3.4",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-emoji": "^0.5.0",
-    "react-router": "^5.2.1",
     "react-router-dom": "^5.3.0",
     "react-scripts": "^4.0.3",
-    "react-stomp": "^5.1.0",
-    "socket.io-client": "^4.2.0",
-    "sockjs": "^0.3.21",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
@@ -26,6 +19,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "proxy": "http://localhost:8080",
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -43,5 +37,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "semistandard": "^16.0.1"
   }
 }

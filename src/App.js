@@ -1,39 +1,27 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
-import Navbar from './Components/Navbar';
-import Jumbotron from './Components/Jumbotron';
-import LoginOrRegister from './Components/LoginOrRegister';
-import Chat from './Components/Chat';
-import Footer from './Components/Footer';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import LoginOrRegister from './Pages/LoginOrRegister';
+import Ticket from './Pages/Ticket';
+import Chat from './Pages/Chat/Chat';
+import Queue from './Pages/Queue';
+import History from './Pages/History';
 
-function App() {
-
-const [user] = useState(null);
-//return user == null ? (
+const App = () => {
   return (
-    <div>
-      <Navbar />
-      <Jumbotron />
-      <div className="content">
-        {user ? (<LoginOrRegister> </LoginOrRegister>) : (<Chat> </Chat>)}
-      </div>
-      <Footer />
-    </div>
-
-
-
-
-
-//<Navbar />
-      // <div className="content">
-
-    //   { user ? 
-    //     ( <LoginOrRegister />) : 
-    //     (<Chat />)
-    // }
-      //</div>
-      //<Footer />
-  ); 
-}
+    <>
+      <Router>
+        <Switch>
+          <Route path='/' component={LoginOrRegister} exact />
+          <Route path='/login' component={LoginOrRegister} />
+          <Route path='/chat' component={Chat} />
+          <Route path='/createTicket' component={Ticket} />
+          <Route path='/queue' component={Queue} />
+          <Route path='/history' component={History} />
+        </Switch>
+      </Router>
+    </>
+  );
+};
 
 export default App;
