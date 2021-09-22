@@ -1,5 +1,5 @@
 # TechSupport_frontend
-The front end for a tech support platform developed for Revature
+The frontend for a tech support platform developed for Revature
 
 
 ## Client Specifications:
@@ -7,7 +7,7 @@ The front end for a tech support platform developed for Revature
 
 
 ## Goal:
-Create an interface for clients to create an account and receive tech support from a specialist.
+Create an interface where clients can discuss their tech issues with a tech support specialist and have them resolved
 
 
 ## User Stories:
@@ -28,16 +28,15 @@ Create an interface for clients to create an account and receive tech support fr
 - JavaScript
 - Bootstrap
 - React 
-- Axios
+- npm
+- axios
 
 
 ## Acknowledgements
 Special thanks to:
 - Samuel Omole of freeCodeCamp
 - Subhransu Maharana of dev.to
-- And of course, a huge thank you to all of people in my batch:
-I couldn't have done it without you.
-(And even if I could, it wouldn't have been nearly as much fun!)
+- Mehrab Rahman's Java Reactive batch
 
 
 ## Getting Started
