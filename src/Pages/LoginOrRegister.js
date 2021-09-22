@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import Navbar from '../../Components/Navbar';
-import Jumbotron from '../../Components/Jumbotron';
-import Footer from '../../Components/Footer';
+import Layout from '../Components/Layout';
 
 const LoginOrRegister = () => {
   const [registerUsername, setRegisterUsername] = useState('');
@@ -10,28 +8,29 @@ const LoginOrRegister = () => {
   const [loginUsername, setLoginUsername] = useState('');
   const [loginPassword, setLoginPassword] = useState('');
 
-  const handleRegisterUsernameChange = event => {
+  const handleRegisterUsernameChange = (event) => {
     setRegisterUsername(event.target.value);
   };
 
-  const handleRegisterPasswordChange = event => {
+  const handleRegisterPasswordChange = (event) => {
     setRegisterPassword(event.target.value);
   };
 
-  const handleLoginUsernameChange = event => {
+  const handleLoginUsernameChange = (event) => {
     setLoginUsername(event.target.value);
   };
 
-  const handleLoginPasswordChange = event => {
+  const handleLoginPasswordChange = (event) => {
     setLoginPassword(event.target.value);
   };
 
-  const handleLogin = event => {
+  const handleLogin = (event) => {
     event.preventDefault();
-    axios.post('/user/login', {
-      username: loginUsername,
-      password: loginPassword
-    })
+    axios
+      .post('/user/login', {
+        username: loginUsername,
+        password: loginPassword
+      })
       .then(({ data }) => {
         console.log(data);
         if (data) {
@@ -45,29 +44,30 @@ const LoginOrRegister = () => {
           window.alert('An error occurred during login. Please try again.'); // user already exists
         }
       })
-      .catch(err => console.error(err));
+      .catch((err) => console.error(err));
   };
 
-  const handleRegister = event => {
+  const handleRegister = (event) => {
     event.preventDefault();
-    axios.post('/user', {
-      username: registerUsername,
-      password: registerPassword
-    })
+    axios
+      .post('/user', {
+        username: registerUsername,
+        password: registerPassword
+      })
       .then(({ data }) => {
         if (data && data.techAgent) {
-          console.log(data);
-          window.localStorage.setItem('user', data);
+          window.localStorage.setItem('user', JSON.stringify(data));
           window.location = '/queue';
         } else if (data && !data.techAgent) {
-          console.log(data);
-          window.localStorage.setItem('user', data);
+          window.localStorage.setItem('user', JSON.stringify(data));
           window.location = '/createTicket';
         } else {
-          window.alert('An error occurred during registration. Please try again.'); // password is wrong
+          window.alert(
+            'An error occurred during registration. Please try again.'
+          ); // password is wrong
         }
       })
-      .catch(err => console.error(err));
+      .catch((err) => console.error(err));
   };
 
   if (window.localStorage.getItem('user')) {
@@ -79,14 +79,16 @@ const LoginOrRegister = () => {
   }
 
   return (
-    <>
-      <Navbar />
-      <Jumbotron />
-      <form id='loginForm'>
-        <div className='row'>
-          <h3 id='alertDiv'>To begin, log in or register below!</h3>
+    <Layout
+      childClass='pt-5 pb-5'
+    >
+      <form id='loginForm' className='pb-5'>
+        <div className='row pb-5'>
+          <h3 id='alertDiv' className='display-4 alert pt-5'>Get Started!</h3>
           <div className='col-sm-3 offset-md-3'>
-            <label htmlFor='registerName' className='form-label'>Register here</label>
+            {/* <label htmlFor='registerName' className='form-label'>
+              Register here
+            </label> */}
             <input
               className='form-control'
               type='text'
@@ -95,7 +97,7 @@ const LoginOrRegister = () => {
               name='registerName'
               placeholder='Username'
               input={registerUsername}
-              onChange={event => handleRegisterUsernameChange(event)}
+              onChange={(event) => handleRegisterUsernameChange(event)}
             />
             <br />
             <input
@@ -106,19 +108,21 @@ const LoginOrRegister = () => {
               name='registerPassword'
               placeholder='Password'
               input={registerPassword}
-              onChange={event => handleRegisterPasswordChange(event)}
+              onChange={(event) => handleRegisterPasswordChange(event)}
             />
             <br />
             <button
               type='button'
-              className='btn btn-primary'
-              onClick={event => handleRegister(event)}
+              className='btn btn-outline-primary'
+              onClick={(event) => handleRegister(event)}
             >
               Register
             </button>
           </div>
           <div className='col-sm-3'>
-            <label htmlFor='loginName' className='form-label'>Log in here</label>
+            {/* <label htmlFor='loginName' className='form-label'>
+              Log in here
+            </label> */}
             <input
               className='form-control'
               type='text'
@@ -127,7 +131,7 @@ const LoginOrRegister = () => {
               name='loginName'
               placeholder='Username'
               input={loginUsername}
-              onChange={event => handleLoginUsernameChange(event)}
+              onChange={(event) => handleLoginUsernameChange(event)}
             />
             <br />
             <input
@@ -138,21 +142,20 @@ const LoginOrRegister = () => {
               name='loginPassword'
               placeholder='Password'
               input={loginPassword}
-              onChange={event => handleLoginPasswordChange(event)}
+              onChange={(event) => handleLoginPasswordChange(event)}
             />
             <br />
             <button
               type='button'
-              className='btn btn-info'
-              onClick={event => handleLogin(event)}
+              className='btn btn-outline-primary'
+              onClick={(event) => handleLogin(event)}
             >
               Log In
             </button>
           </div>
         </div>
       </form>
-      <Footer />
-    </>
+    </Layout>
   );
 };
 
