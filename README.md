@@ -36,7 +36,7 @@ Create an interface where clients can discuss their tech issues with a tech supp
 Special thanks to:
 - Samuel Omole of freeCodeCamp
 - Subhransu Maharana of dev.to
-- Mehrab Rahman's Java Reactive batch
+- Mehrab's Java Reactive batch
 
 
 ## Getting Started
