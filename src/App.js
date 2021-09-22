@@ -1,13 +1,13 @@
-import React from 'react';
-import './App.css';
-import { Route, Redirect, Switch, BrowserRouter as Router } from 'react-router-dom';
+import React from "react";
+import "./App.css";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 // import Home from './Pages/Home';
-import LoginOrRegister from './Pages/LoginOrRegister';
-import Ticket from './Pages/Ticket';
-import Chat from './Pages/Chat/Chat';
-import ChatCopy from './Pages/Chat/ChatCopy'; // Dev purpose Delete ASAP
-import Queue from './Pages/Queue';
-import History from './Pages/History';
+import LoginOrRegister from "./Pages/LoginOrRegister";
+import Ticket from "./Pages/Ticket";
+import Chat from "./Pages/Chat/Chat";
+import ChatCopy from "./Pages/Chat/Chat"; // Dev purpose Delete ASAP
+import Queue from "./Pages/Queue";
+import History from "./Pages/History";
 // import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 
 const App = () => {
@@ -15,15 +15,14 @@ const App = () => {
     <>
       <Router>
         <Switch>
-          <Redirect exact from='/' to='/login' />
-          <Route path='/login' component={LoginOrRegister} />
-          <Route path='/chat' component={() => <Chat user={user} />} />
-          <Route path='/chatCopy' component={() => <ChatCopy user={user} />} />
-          <Route path='/createTicket' component={Ticket} />
-          <Route path='/queue' component={Queue} />
-          <Route path='/history' component={History} />
+          <Route path="/" component={LoginOrRegister} exact />
+          <Route path="/login" component={LoginOrRegister} />
+          <Route path="/chat" component={Chat} />
+          <Route path="/createTicket" component={Ticket} />
+          <Route path="/queue" component={Queue} />
+          <Route path="/history" component={History} />
         </Switch>
-      </Router> 
+      </Router>
     </>
     // user == null ? (
     // <>
@@ -47,26 +46,26 @@ const App = () => {
     // )
     // );
 
-  //     <>
-  //       <Router>
-  //         <Switch>
-  //           <Redirect exact from='/' to='/login' />
-  //         </Switch>
-  //       </Router>
-  //     </>
-  //   );
-  // } else {
-  //   return (
-  //     <>
-  //       <Router>
-  //         <Switch>
-  //           <Route exactpath='/' component={Home} />
-  //           <Route path='/login' component={LoginOrRegister} />
-  //           <PrivateRoute path='/chat' component={Chat} />
-  //           <PrivateRoute path='/createTicket' component={Ticket} />
-  //         </Switch>
-  //       </Router>
-  //     </>
+    //     <>
+    //       <Router>
+    //         <Switch>
+    //           <Redirect exact from='/' to='/login' />
+    //         </Switch>
+    //       </Router>
+    //     </>
+    //   );
+    // } else {
+    //   return (
+    //     <>
+    //       <Router>
+    //         <Switch>
+    //           <Route exactpath='/' component={Home} />
+    //           <Route path='/login' component={LoginOrRegister} />
+    //           <PrivateRoute path='/chat' component={Chat} />
+    //           <PrivateRoute path='/createTicket' component={Ticket} />
+    //         </Switch>
+    //       </Router>
+    //     </>
   );
 };
 
