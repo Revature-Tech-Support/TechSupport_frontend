@@ -253,22 +253,22 @@
 }
 
 .sender-cc {
-  flex-direction: row;
+  flex-direction: row-reverse;
 }
 .receiver-cc {
-  flex-direction: row-reverse;
+  flex-direction: row;
 }
 .message-text {
   margin-bottom: 0;
   padding: 0 1em;
 }
 
-.message-text-receiver {
+.message-text-sender {
   border-radius: 8px 0px 8px 8px;
   background: #ffd998;
   margin-right: 0.5em;
 }
-.message-text-sender {
+.message-text-receiver {
   border-radius: 0px 8px 8px 8px;
   background: #ffd998;
   margin-left: 0.5em;
