@@ -23,20 +23,18 @@ Create an interface where clients can discuss their tech issues with a tech supp
 
 
 ## Technology:
-- HTML5
-- CSS3
+- HTML
+- CSS
 - JavaScript
 - Bootstrap
 - React 
-- npm
-- axios
 
 
 ## Acknowledgements
 Special thanks to:
 - Samuel Omole of freeCodeCamp
 - Subhransu Maharana of dev.to
-- Mehrab's Java Reactive batch
+- My Java Reactive batch
 
 
 ## Getting Started
