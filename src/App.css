@@ -34,6 +34,7 @@ h5 {
   animation: Gradient 15s ease infinite;
   padding-top: 2em;
   color: #ffffff;
+  box-shadow: 3px 3px 12px #595e66;
 }
 
 .home-jt {
@@ -120,7 +121,7 @@ h5 {
   color: #f36f2c;
 }
 
-.btn{
+.btn {
   cursor: pointer;
   /* color: #fff; */
   /* background: #304d6d; */
@@ -129,24 +130,52 @@ h5 {
 }
 
 .btn-outline-primary {
-  color: #3498DB;
-  border-color: #3498DB;
+  /* Uncomment for blue buttons */
+  /* color: #3498db;
+  /* border-color: #3498db; */
   padding: 12px 60px;
+
+  color: rgb(242 110 43);
+  border-color: rgb(242 110 43);
 }
 
 .btn-outline-primary:hover,
 .btn-outline-primary:active,
 .btn-outline-primary:focus,
-.btn-outline-primary::selection
-{
-    background: #3498DB;
-    border-color: #3498DB;
+.btn-outline-primary::selection {
+  /* Uncomment for blue buttons */
+
+  /* background: #3498db;
+  border-color: #3498db; */
+
+  background: rgb(242 110 43);
+  border-color: rgb(242 110 43);
+  box-shadow: 0 0 0 0.25rem rgb(242 110 43 / 25%);
 }
 
-.create-ticket{
+.create-ticket {
   padding: 5em 0em;
 }
 
-.ticket-header{
+.ticket-header {
   color: #f36f2c;
+}
+
+/* Comment it out for blue color */
+.form-control {
+  border-color: rgb(242 110 43);
+}
+.form-control:focus,
+.form-control:hover,
+.form-control:active,
+.form-control:target,
+.form-control:visited {
+  border-color: rgb(242 110 43);
+  box-shadow: 0 0 0 0.25rem rgb(242 110 43 / 25%);
+}
+
+/* Nav links */
+.nav-link:hover,
+.nav-link:active .nav-link:focus .nav-link:focus {
+  color: #f97401 !important;
 }

@@ -1,8 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
-import Message from "../../Components/Message/Message";
+import Message from "../../Components/Message";
 import "./Chat.css";
 import axios from "axios";
-import Layout from "../../Components/Layout/Layout";
+import Layout from "../../Components/Layout";
 
 const Chat = ({ user }) => {
   const scrollRef = useRef();
@@ -93,6 +93,7 @@ const Chat = ({ user }) => {
       title = ""
       desc = ""
       jtClass = "pt-1"
+      childClass = "chat-page"
       >
         <div className="container chatBox">
           <div className="chatHeader">

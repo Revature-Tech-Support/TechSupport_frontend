@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Layout from "../../Components/Layout/Layout";
+import Layout from "../Components/Layout";
 
 const Queue = ({ ticketId }) => {
   //const [userId, setUserId] = useState(window.localStorage.getItem('userId'));

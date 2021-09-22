@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import axios from "axios";
-import Layout from "../../Components/Layout/Layout";
+import Layout from "../Components/Layout";
 
 const Ticket = () => {
   // states

@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import './App.css';
 import { Route, Redirect, Switch, BrowserRouter as Router } from 'react-router-dom';
 //import Home from './Pages/Home';
-import LoginOrRegister from './Pages/LoginOrRegister/LoginOrRegister';
-import Ticket from './Pages/Ticket/Ticket';
+import LoginOrRegister from './Pages/LoginOrRegister';
+import Ticket from './Pages/Ticket';
 import Chat from './Pages/Chat/Chat';
-import Queue from './Pages/Queue/Queue';
+import ChatCopy from './Pages/Chat/ChatCopy'; // Dev purpose Delete ASAP
+import Queue from './Pages/Queue';
 //import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 
 const App = () => {
@@ -18,6 +19,7 @@ const App = () => {
           <Redirect exact from='/' to='/login' />
           <Route path='/login' component={LoginOrRegister} />
           <Route path='/chat' component={() => <Chat user={user} />} />
+          <Route path='/chatCopy' component={() => <ChatCopy user={user} />} />
           <Route path='/createTicket' component={Ticket} />
           <Route path='/queue' component={Queue} />
         </Switch>
