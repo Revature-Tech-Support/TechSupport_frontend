@@ -24,7 +24,7 @@ const Navbar = () => {
       <nav className='navbar navbar-expand-lg navbar-light'>
         <div className='container-fluid'>
           <a className='navbar-brand' href='/'>
-            <img src='./resources/imgs/logo.png' />
+            <img src='./resources/imgs/logo.png' alt='Revature logo' />
           </a>
           <div className='navbar-nav'>
             <a className='nav-link' href='/login'>
@@ -40,7 +40,7 @@ const Navbar = () => {
       <nav className='navbar navbar-expand-lg navbar-light'>
         <div className='container-fluid'>
           <a className='navbar-brand' href='/'>
-            <img src='./resources/imgs/logo.png' />
+            <img src='./resources/imgs/logo.png' alt='Revature logo' />
           </a>
           <div className='navbar-nav'>
             <a
@@ -64,7 +64,9 @@ const Navbar = () => {
     //   return (
     //     <nav className='navbar navbar-expand-lg navbar-light'>
     //       <div className='container-fluid'>
-    //         <a className='navbar-brand' href='/'>Revature</a>
+    //         <a className='navbar-brand' href='/'>
+    //           <img src='./resources/imgs/logo.png' alt='Revature logo' />
+    //         </a >
     //         <div className='navbar-nav'>
     //           <a className='nav-link' href='/login' onClick={event => signOut(event)}>Sign Out</a>
     //           <a className='nav-link' href='/createTicket'>Create Ticket</a>
@@ -76,7 +78,9 @@ const Navbar = () => {
     //   return (
     //     <nav className='navbar navbar-expand-lg navbar-light'>
     //       <div className='container-fluid'>
-    //         <a className='navbar-brand' href='www.revature.com'>Revature</a>
+    //         <a className='navbar-brand' href='/'>
+    //           <img src='./resources/imgs/logo.png' alt='Revature logo' />
+    //         </a >
     //         <div className='navbar-nav'>
     //           <a className='nav-link' href='/login' onClick={event => signOut(event)}>Sign Out</a>
     //           <a className='nav-link' href='/createTicket'>Create Ticket</a>
@@ -89,8 +93,8 @@ const Navbar = () => {
     return (
       <nav className='navbar navbar-expand-lg navbar-light'>
         <div className='container-fluid'>
-          <a className='navbar-brand' href='www.revature.com'>
-            <img src='./resources/imgs/logo.png' />
+          <a className='navbar-brand' href='/'>
+            <img src='./resources/imgs/logo.png' alt='Revature logo' />
           </a>
           <div className='navbar-nav'>
             <a
