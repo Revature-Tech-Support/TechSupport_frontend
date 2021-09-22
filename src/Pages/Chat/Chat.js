@@ -7,7 +7,8 @@ import Layout from "../../Components/Layout";
 import { ReactComponent as RightArrow } from "../../resources/svg/circle-right.svg";
 import { ReactComponent as TimesCircle } from "../../resources/svg/times-circle.svg";
 
-const Chat = ({ user }) => {
+const Chat = () => {
+  const user = JSON.parse(window.localStorage.getItem('user'));
   const scrollRef = useRef();
   const webSocket = useRef();
 
@@ -25,7 +26,7 @@ const Chat = ({ user }) => {
     if (input !== "") {
       webSocket.current.send(
         JSON.stringify({
-          username: user,
+          username: user.username,
           message: input,
           timestamp: Date.now(),
         })
