@@ -9,7 +9,6 @@ import { ReactComponent as TimesCircle } from '../../resources/svg/times-circle.
 
 const Chat = () => {
   const user = JSON.parse(window.localStorage.getItem('user'));
-  // const scrollRef = useRef();
   const webSocket = useRef();
 
   // states
@@ -56,8 +55,10 @@ const Chat = () => {
 
   const getTranscripts = (event) => {
     event.preventDefault();
+    // 'axios.get' line needs to be replaced once transcripts is connected to the frontend
+    // for now, using jsonplaceholder dummy data to demonstrate functionality
     axios
-      .get('https://jsonplaceholder.typicode.com/users')
+      .get('https://jsonplaceholder.typicode.com/comments')
       // axios.get(`/transcripts/${userId}`, {
       //   transcripts: transcripts
       // })
@@ -69,6 +70,7 @@ const Chat = () => {
       .catch((err) => console.error(err));
   };
 
+  // console logging status updates based on whether WebSocket is connected
   useEffect(() => {
     webSocket.current = new window.WebSocket('ws://localhost:8080/ws');
 
@@ -83,6 +85,7 @@ const Chat = () => {
     };
   }, []);
 
+  // using WebSocket to send messages
   useEffect(() => {
     webSocket.current.onmessage = (event) => {
       setMessages((messages) => [...messages, JSON.parse(event.data)]);

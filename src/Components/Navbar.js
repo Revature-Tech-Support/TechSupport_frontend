@@ -10,6 +10,7 @@ const Navbar = () => {
     window.location = './login';
   };
 
+  // method to retrieve the issue id of the longest-waiting client in the queue
   // const longestWaiting = issueId => {
   //   axios.get(`/issues/${issueId}`)
   //     .then(({ data }) => {

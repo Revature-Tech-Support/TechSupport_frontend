@@ -1,6 +1,5 @@
 import React from 'react';
 import Navbar from './Navbar';
-import Footer from './Footer.js';
 
 const Layout = ({
   children,
@@ -21,7 +20,6 @@ const Layout = ({
       <p className='lead'>{desc}</p>
     </div>
     <div className={childClass}>{children}</div>
-    <Footer />
   </>
 );
 
