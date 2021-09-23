@@ -17,8 +17,8 @@ const Message = ({ message }) => {
             : 'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.zastavki.com%2Fpictures%2F1680x1050%2F2010%2FAnimals_Beasts_Small_squirrel_on_a_branch_021435_.jpg&f=1&nofb=1'
         }
         alt='profile pic'
-        height='30px'
-        width='30px'
+        height='40px'
+        width='40px'
       />
       <p
         className={

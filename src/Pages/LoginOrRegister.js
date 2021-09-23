@@ -86,9 +86,6 @@ const LoginOrRegister = () => {
         <div className='row pb-5'>
           <h3 id='alertDiv' className='display-4 login-header pb-4 pt-4'>Get Started!</h3>
           <div className='col-sm-3 offset-md-3'>
-            {/* <label htmlFor='registerName' className='form-label'>
-              Register here
-            </label> */}
             <input
               className='form-control'
               type='text'
@@ -120,9 +117,6 @@ const LoginOrRegister = () => {
             </button>
           </div>
           <div className='col-sm-3'>
-            {/* <label htmlFor='loginName' className='form-label'>
-              Log in here
-            </label> */}
             <input
               className='form-control'
               type='text'
