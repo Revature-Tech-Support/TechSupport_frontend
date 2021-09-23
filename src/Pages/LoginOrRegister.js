@@ -44,7 +44,6 @@ const LoginOrRegister = () => {
         password: loginPassword
       })
       .then(({ data }) => {
-        console.log(data);
         if (data) {
           window.localStorage.setItem('user', JSON.stringify(data));
           if (data.techAgent) {
