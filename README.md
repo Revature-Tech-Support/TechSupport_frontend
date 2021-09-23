@@ -43,6 +43,6 @@ Special thanks to:
 3) install nodeJS on Windows: https://nodejs.org/en/
     for Mac OS: https://www.fosstechnix.com/install-node-js-on-mac/
 4) ```npm init``` in the command line, then follow prompts (alternatively, you can use ```npm init --y``` to automatically flag 'yes' to all the prompts)
-5) ```npm i``` 
+5) ```npm i``` ('npm i' is short-hand for 'npm install'. Either will work)
 6) ```npm start``` (this should open the react app in your browser of choice)
 * NOTE: On Linux, nodeJS is a dependency of npm; please install according to the distribution you are using.
