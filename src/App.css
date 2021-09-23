@@ -3,7 +3,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro&family=Lato:wght@100;300;400;900&family=Open+Sans:wght@300;400;700&display=swap");
 body {
   margin: 0;
-  /* font-family: 'Lato', sans-serif; */
   font-family: "Be Vietnam Pro", sans-serif;
   text-align: center;
 }
@@ -16,6 +15,7 @@ h5 {
   font-family: "Open Sans", sans-serif;
 }
 
+/* Navbar Styles */
 .main-navbar {
   box-shadow: 6px 6px 45px #ff6000;
   background-color: #f8f9fa !important;
@@ -25,6 +25,17 @@ h5 {
   width: 8em;
 }
 
+.nav-link {
+  color: #474c55 !important;
+  padding: 10px !important;
+}
+
+.nav-link:hover,
+.nav-link:active .nav-link:focus .nav-link:focus {
+  color: #f97401 !important;
+}
+
+/* Jumbotron */
 .jumbotron {
   background-color: rgb(247, 119, 0);
   background-image: linear-gradient(315deg, #ff6000 0%, #ec9f05 74%);
@@ -49,6 +60,7 @@ h5 {
   font-size: 1.75rem;
 }
 
+/* Gradient animation */
 @-webkit-keyframes Gradient {
   0% {
     background-position: 0% 50%;
@@ -85,46 +97,33 @@ h5 {
   }
 }
 
-.nav-link {
-  color: #474c55 !important;
-  padding: 10px !important;
+/* Login / Home page */
+/* Header login/signup forms */
+.login-header {
+  color: #f36f2c;
 }
 
-.form {
-  padding: 6em 3em;
-  margin-top: -2em;
-  padding-bottom: 15em;
-}
-
-.input-form {
-  margin: 0 3em;
-}
-
+/* Ticket Page */
 .ticketContainer {
   width: 50%;
 }
 
-.card {
-  margin: auto;
+.create-ticket {
+  padding: 5em 0em;
 }
 
-.sheet {
-  border: 2px solid black;
-  box-shadow: 5px 10px gray;
+.ticket-header {
+  color: #f36f2c;
 }
 
+/* History page */
 .transcripts {
   margin-left: 100px;
 }
 
-.alert {
-  color: #f36f2c;
-}
-
+/* Buttons */
 .btn {
   cursor: pointer;
-  /* color: #fff; */
-  /* background: #304d6d; */
   border-radius: 7.5px;
   padding: 12px 16px;
 }
@@ -153,15 +152,7 @@ h5 {
   box-shadow: 0 0 0 0.25rem rgb(242 110 43 / 25%);
 }
 
-.create-ticket {
-  padding: 5em 0em;
-}
-
-.ticket-header {
-  color: #f36f2c;
-}
-
-/* Comment it out for blue color */
+/* Forms */
 .form-control {
   border-color: rgb(242 110 43);
 }
@@ -172,10 +163,4 @@ h5 {
 .form-control:visited {
   border-color: rgb(242 110 43);
   box-shadow: 0 0 0 0.25rem rgb(242 110 43 / 25%);
-}
-
-/* Nav links */
-.nav-link:hover,
-.nav-link:active .nav-link:focus .nav-link:focus {
-  color: #f97401 !important;
 }

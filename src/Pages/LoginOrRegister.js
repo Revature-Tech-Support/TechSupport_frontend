@@ -84,7 +84,7 @@ const LoginOrRegister = () => {
     >
       <form id='loginForm' className='pb-5'>
         <div className='row pb-5'>
-          <h3 id='alertDiv' className='display-4 alert pt-5'>Get Started!</h3>
+          <h3 id='alertDiv' className='display-4 login-header pb-4 pt-4'>Get Started!</h3>
           <div className='col-sm-3 offset-md-3'>
             {/* <label htmlFor='registerName' className='form-label'>
               Register here

@@ -23,7 +23,7 @@ const Navbar = () => {
     // not logged in
     return (
       <nav className='navbar navbar-expand-lg navbar-light'>
-        <div className='container-fluid'>
+        <div className='container'>
           <a className='navbar-brand' href='/'>
             <img src='./resources/imgs/logo.png' alt='Revature logo' />
           </a>
@@ -39,7 +39,7 @@ const Navbar = () => {
     // you are logged in and you are tech support
     return (
       <nav className='navbar navbar-expand-lg navbar-light'>
-        <div className='container-fluid'>
+        <div className='container'>
           <a className='navbar-brand' href='/'>
             <img src='./resources/imgs/logo.png' alt='Revature logo' />
           </a>
@@ -64,7 +64,7 @@ const Navbar = () => {
     // } else if (user.username !== longestWaiting) { // this if will have to change
     //   return (
     //     <nav className='navbar navbar-expand-lg navbar-light'>
-    //       <div className='container-fluid'>
+    //       <div className='container'>
     //         <a className='navbar-brand' href='/'>
     //           <img src='./resources/imgs/logo.png' alt='Revature logo' />
     //         </a >
@@ -78,7 +78,7 @@ const Navbar = () => {
     // } else if (user === longestWaiting) { // this if will have to change
     //   return (
     //     <nav className='navbar navbar-expand-lg navbar-light'>
-    //       <div className='container-fluid'>
+    //       <div className='container'>
     //         <a className='navbar-brand' href='/'>
     //           <img src='./resources/imgs/logo.png' alt='Revature logo' />
     //         </a >
@@ -93,7 +93,7 @@ const Navbar = () => {
   } else {
     return (
       <nav className='navbar navbar-expand-lg navbar-light'>
-        <div className='container-fluid'>
+        <div className='container'>
           <a className='navbar-brand' href='/'>
             <img src='./resources/imgs/logo.png' alt='Revature logo' />
           </a>

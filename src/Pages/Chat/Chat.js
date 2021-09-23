@@ -116,9 +116,7 @@ const Chat = () => {
           ))}
         </div>
         <div className='chat-input-div'>
-          {/* <form className='chat-input-form'> */}
           <input
-            // id='messageInput'
             type='text'
             name='inputText'
             placeholder='Type your message here'
@@ -127,7 +125,6 @@ const Chat = () => {
             className='form-control chat-input'
           />
           <RightArrow onClick={(event) => sendMessage(event)} />
-          {/* </form> */}
           <button
             className='button btn btn-outline-primary transcripts-cc'
             target='_blank'
