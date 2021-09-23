@@ -24,6 +24,18 @@ const LoginOrRegister = () => {
     setLoginPassword(event.target.value);
   };
 
+  const handleRegisterEnterKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      handleRegister(event);
+    }
+  };
+
+  const handleLoginEnterKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      handleLogin(event);
+    }
+  };
+
   const handleLogin = (event) => {
     event.preventDefault();
     axios
@@ -32,7 +44,6 @@ const LoginOrRegister = () => {
         password: loginPassword
       })
       .then(({ data }) => {
-        console.log(data);
         if (data) {
           window.localStorage.setItem('user', JSON.stringify(data));
           if (data.techAgent) {
@@ -95,6 +106,7 @@ const LoginOrRegister = () => {
               placeholder='Username'
               input={registerUsername}
               onChange={(event) => handleRegisterUsernameChange(event)}
+              onKeyPress={(event) => handleRegisterEnterKeyPress(event)}
             />
             <br />
             <input
@@ -106,6 +118,7 @@ const LoginOrRegister = () => {
               placeholder='Password'
               input={registerPassword}
               onChange={(event) => handleRegisterPasswordChange(event)}
+              onKeyPress={(event) => handleRegisterEnterKeyPress(event)}
             />
             <br />
             <button
@@ -126,6 +139,7 @@ const LoginOrRegister = () => {
               placeholder='Username'
               input={loginUsername}
               onChange={(event) => handleLoginUsernameChange(event)}
+              onKeyPress={(event) => handleLoginEnterKeyPress(event)}
             />
             <br />
             <input
@@ -137,6 +151,7 @@ const LoginOrRegister = () => {
               placeholder='Password'
               input={loginPassword}
               onChange={(event) => handleLoginPasswordChange(event)}
+              onKeyPress={(event) => handleLoginEnterKeyPress(event)}
             />
             <br />
             <button

@@ -34,23 +34,26 @@ const Chat = () => {
     }
   };
 
+  const handleEnterKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      sendMessage(event);
+    }
+  };
+
   const handleCloseChat = (event) => {
-    if (user === "client") {
-      // this comparison will need to be updated
-      if (
-        window.confirm(
-          "You have left the chat and will now be redirected to the login/register page."
-        )
-      ) {
+    if (!user.techAgent) {
+      if (window.confirm(
+        'Would you like to leave the chat? You will now be redirected to the login/register page.'
+      )) {
         // clears client from localStorage, thereby logging them out
         window.localStorage.clear();
         window.location = "/";
       }
     } else {
       // this is for tech support and redirects them to the queue
-      if (window.confirm("Issue has been marked as resolved.")) {
-        window.localStorage.removeItem("transcripts");
-        window.location = "/queue";
+      if (window.confirm('Mark issue as resolved?')) {
+        window.localStorage.removeItem('transcripts');
+        window.location = '/queue';
       }
     }
   };
@@ -122,7 +125,8 @@ const Chat = () => {
             placeholder="Type your message here"
             value={input}
             onChange={(event) => handleInputChange(event)}
-            className="form-control chat-input"
+            onKeyPress={(event) => handleEnterKeyPress(event)}
+            className='form-control chat-input'
           />
           <RightArrow onClick={(event) => sendMessage(event)} />
           <button
