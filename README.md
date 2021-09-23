@@ -28,6 +28,8 @@ Create an interface where clients can discuss their tech issues with a tech supp
 - JavaScript
 - Bootstrap
 - React 
+- Node.js
+- Karate
 
 
 ## Acknowledgements
