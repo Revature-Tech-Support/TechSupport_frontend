@@ -35,10 +35,9 @@ const Chat = () => {
   };
 
   const handleCloseChat = (event) => {
-    if (user === 'client') {
-      // this comparison will need to be updated
+    if (!user.techAgent) {
       if (window.confirm(
-        'You have left the chat and will now be redirected to the login/register page.'
+        'Would you like to leave the chat? You will now be redirected to the login/register page.'
       )) {
         // clears client from localStorage, thereby logging them out
         window.localStorage.clear();
@@ -46,7 +45,7 @@ const Chat = () => {
       }
     } else {
       // this is for tech support and redirects them to the queue
-      if (window.confirm('Issue has been marked as resolved.')) {
+      if (window.confirm('Mark issue as resolved?')) {
         window.localStorage.removeItem('transcripts');
         window.location = '/queue';
       }
