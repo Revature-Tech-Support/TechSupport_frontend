@@ -34,6 +34,12 @@ const Chat = () => {
     }
   };
 
+  const handleEnterKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      sendMessage(event);
+    }
+  };
+
   const handleCloseChat = (event) => {
     if (!user.techAgent) {
       if (window.confirm(
@@ -123,6 +129,7 @@ const Chat = () => {
             placeholder='Type your message here'
             value={input}
             onChange={(event) => handleInputChange(event)}
+            onKeyPress={(event) => handleEnterKeyPress(event)}
             className='form-control chat-input'
           />
           <RightArrow onClick={(event) => sendMessage(event)} />
